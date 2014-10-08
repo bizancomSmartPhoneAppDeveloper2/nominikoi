@@ -1,25 +1,317 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iriguchi" translatesAutoresizingMaskIntoConstraints="NO" id="V5K-e7-NPh">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nobori" translatesAutoresizingMaskIntoConstraints="NO" id="HV3-OZ-9aW">
+                                <rect key="frame" x="-8" y="20" width="328" height="183"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushibeel1" translatesAutoresizingMaskIntoConstraints="NO" id="QOT-ei-396">
+                                <rect key="frame" x="7" y="106" width="363" height="472"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="imageview" destination="QOT-ei-396" id="4el-8K-iYh"/>
+                        <segue destination="Rev-6t-aoF" kind="modal" identifier="firstsegue" animates="NO" id="o6y-Eg-WJl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="74" y="128"/>
+        </scene>
+        <!--Choice View Controller-->
+        <scene sceneID="46N-zu-6Cb">
+            <objects>
+                <viewController id="Rev-6t-aoF" customClass="ChoiceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CI9-4C-bty"/>
+                        <viewControllerLayoutGuide type="bottom" id="cBb-CJ-90S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1mi-fa-REf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menyu-q" translatesAutoresizingMaskIntoConstraints="NO" id="Ogm-Tv-6an">
+                                <rect key="frame" x="-5" y="28" width="325" height="540"/>
+                            </imageView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgm-oE-YHa">
+                                <rect key="frame" x="6" y="203" width="100" height="162"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eiP-u5-nju">
+                                <rect key="frame" x="119" y="203" width="196" height="162"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOX-Pd-gqK">
+                                <rect key="frame" x="101" y="472" width="118" height="65"/>
+                                <state key="normal" backgroundImage="tyuumon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="start:" destination="Rev-6t-aoF" eventType="touchUpInside" id="xpJ-wG-OYZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="moneypicker" destination="eiP-u5-nju" id="2wn-Gb-hmw"/>
+                        <outlet property="timepicker" destination="bgm-oE-YHa" id="P46-Uc-A0j"/>
+                        <segue destination="obg-Ue-Syl" kind="modal" identifier="secondsegue" animates="NO" id="GFo-OU-ifS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X3I-j8-fyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496" y="123"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="IrV-Mt-3kI">
+            <objects>
+                <viewController id="obg-Ue-Syl" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uyg-zD-e2g"/>
+                        <viewControllerLayoutGuide type="bottom" id="SQF-Za-J3b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Oa-Ae-3hy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sgH-Ee-eDv">
+                                <rect key="frame" x="0.0" y="227" width="325" height="341"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8e6-kH-SCL">
+                                <rect key="frame" x="0.0" y="20" width="320" height="207"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgs-jp-dlU">
+                                        <rect key="frame" x="13" y="8" width="170" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fukidashi" translatesAutoresizingMaskIntoConstraints="NO" id="6vH-Y3-LvV">
+                                        <rect key="frame" x="0.0" y="32" width="183" height="115"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tuki" translatesAutoresizingMaskIntoConstraints="NO" id="xs5-Xk-0Xh">
+                                        <rect key="frame" x="255" y="8" width="72" height="51"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZQ-Ht-Mc4">
+                                        <rect key="frame" x="59" y="155" width="92" height="49"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iht-37-iH7">
+                                        <rect key="frame" x="13" y="50" width="163" height="53"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushibeel1" translatesAutoresizingMaskIntoConstraints="NO" id="AfT-VT-fuv">
+                                        <rect key="frame" x="175" y="32" width="128" height="186"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23631254809999999" green="0.1832086138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BV9-hn-QL9">
+                                <rect key="frame" x="152" y="356" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="activity" destination="BV9-hn-QL9" id="6AV-Ee-LSh"/>
+                        <outlet property="backview" destination="8e6-kH-SCL" id="1A2-85-xJQ"/>
+                        <outlet property="charaimage" destination="AfT-VT-fuv" id="9HX-ge-c0f"/>
+                        <outlet property="fukidashi" destination="Iht-37-iH7" id="nqv-aN-gB6"/>
+                        <outlet property="map" destination="sgH-Ee-eDv" id="c9L-iC-lMc"/>
+                        <outlet property="shoplabel" destination="rgs-jp-dlU" id="jKi-UX-yUZ"/>
+                        <outlet property="timelabel" destination="gZQ-Ht-Mc4" id="2mj-RU-Vvi"/>
+                        <segue destination="mGi-vv-tGI" kind="modal" identifier="notfoundsegue" animates="NO" id="gox-k4-2Sm"/>
+                        <segue destination="Jg0-7o-kp9" kind="modal" identifier="failsegue" animates="NO" id="zcl-Cc-Kht"/>
+                        <segue destination="B7r-wC-hIV" kind="modal" identifier="sucsesssegue" animates="NO" id="wA5-gj-lnu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXk-4L-fet" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="931" y="83"/>
+        </scene>
+        <!--Fail View Controller-->
+        <scene sceneID="fNn-8O-2Rc">
+            <objects>
+                <viewController id="Jg0-7o-kp9" customClass="FailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="goX-mo-Msd"/>
+                        <viewControllerLayoutGuide type="bottom" id="met-dg-oOk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8JC-f9-YWz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGv-2A-er3">
+                                <rect key="frame" x="0.0" y="27" width="320" height="541"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushisample" translatesAutoresizingMaskIntoConstraints="NO" id="H0O-52-7kL">
+                                        <rect key="frame" x="53" y="134" width="292" height="447"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fukidashi" translatesAutoresizingMaskIntoConstraints="NO" id="deG-fA-gRB">
+                                        <rect key="frame" x="-3" y="119" width="179" height="173"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="バカモ〜ン" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-pl-ZJL">
+                                        <rect key="frame" x="0.0" y="146" width="172" height="76"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tuki" translatesAutoresizingMaskIntoConstraints="NO" id="MrG-5u-Ole">
+                                        <rect key="frame" x="184" y="10" width="109" height="128"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23631254809999999" green="0.1832086138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="backview" destination="UGv-2A-er3" id="nvX-48-ZpB"/>
+                        <outlet property="fukidashi" destination="E9K-pl-ZJL" id="q3g-Rv-F1P"/>
+                        <segue destination="Rev-6t-aoF" kind="modal" identifier="failbacksegue" animates="NO" id="cb8-i6-cNd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F8Q-N8-lRc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1356" y="83"/>
+        </scene>
+        <!--Notfound View Controller-->
+        <scene sceneID="eM3-1g-Oea">
+            <objects>
+                <viewController id="mGi-vv-tGI" customClass="NotfoundViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mEW-kK-JFG"/>
+                        <viewControllerLayoutGuide type="bottom" id="gOc-7U-ZEN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sVz-KB-RVl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hBY-8S-TLQ">
+                                <rect key="frame" x="0.0" y="35" width="320" height="533"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushisad" translatesAutoresizingMaskIntoConstraints="NO" id="bdM-ra-7IM">
+                                        <rect key="frame" x="0.0" y="153" width="388" height="400"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fukidashi" translatesAutoresizingMaskIntoConstraints="NO" id="2O3-vg-62I">
+                                        <rect key="frame" x="-9" y="124" width="184" height="186"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tuki" translatesAutoresizingMaskIntoConstraints="NO" id="3n3-xE-Nxu">
+                                        <rect key="frame" x="178" y="8" width="134" height="128"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ここら辺飲めるところ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCZ-3G-bnw">
+                                        <rect key="frame" x="0.0" y="147" width="170" height="92"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23631254809999999" green="0.1832086138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="backview" destination="hBY-8S-TLQ" id="O4Q-eZ-AgT"/>
+                        <outlet property="fukidashi" destination="GCZ-3G-bnw" id="INL-eM-DUW"/>
+                        <segue destination="Rev-6t-aoF" kind="modal" identifier="notbacksegue" animates="NO" id="Ixj-iW-6i5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="99b-l4-Iqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938" y="-614"/>
+        </scene>
+        <!--Sucsess View Controller-->
+        <scene sceneID="VZ2-12-Kax">
+            <objects>
+                <viewController id="B7r-wC-hIV" customClass="SucsessViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Vl-Hh-y1V"/>
+                        <viewControllerLayoutGuide type="bottom" id="9yH-th-6fm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p8X-IO-ESJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="izakaya" translatesAutoresizingMaskIntoConstraints="NO" id="BaT-La-NuS">
+                                <rect key="frame" x="-6" y="8" width="333" height="574"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushibeel3" translatesAutoresizingMaskIntoConstraints="NO" id="viI-nk-cRl">
+                                <rect key="frame" x="78" y="128" width="293" height="476"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fukidashi" translatesAutoresizingMaskIntoConstraints="NO" id="dlQ-M8-1v1">
+                                <rect key="frame" x="-6" y="106" width="213" height="170"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="お〜お疲れ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNh-ey-bKG">
+                                <rect key="frame" x="8" y="126" width="192" height="87"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="fukidashi" destination="KNh-ey-bKG" id="00d-v6-3kU"/>
+                        <outlet property="imageview" destination="viI-nk-cRl" id="Har-zz-0rC"/>
+                        <segue destination="Rev-6t-aoF" kind="modal" identifier="sucsessbacksegue" animates="NO" id="wiz-bd-apd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GhV-G7-nGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="559" y="-604"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fukidashi" width="640" height="400"/>
+        <image name="iriguchi" width="500" height="650"/>
+        <image name="izakaya" width="450" height="641"/>
+        <image name="joushibeel1" width="1600" height="1200"/>
+        <image name="joushibeel3" width="1600" height="1200"/>
+        <image name="joushisad" width="1600" height="1200"/>
+        <image name="joushisample" width="1600" height="1200"/>
+        <image name="menyu-q" width="400" height="640"/>
+        <image name="nobori" width="640" height="400"/>
+        <image name="tuki" width="100" height="100"/>
+        <image name="tyuumon" width="200" height="150"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ixj-iW-6i5"/>
+    </inferredMetricsTieBreakers>
 </document>

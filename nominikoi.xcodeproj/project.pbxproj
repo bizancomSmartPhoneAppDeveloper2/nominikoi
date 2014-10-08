@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87138AC619E541F100E3CFFC /* gekido.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 87138AC519E541F100E3CFFC /* gekido.mp3 */; };
+		8718794B19DE4C1A009F78BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8718794A19DE4C1A009F78BC /* MapKit.framework */; };
+		8718794D19DE4C60009F78BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8718794C19DE4C60009F78BC /* AVFoundation.framework */; };
+		8718794F19DE4C6F009F78BC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8718794E19DE4C6F009F78BC /* AudioToolbox.framework */; };
+		8718795119DE4CA1009F78BC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8718795019DE4CA1009F78BC /* CoreLocation.framework */; };
+		874257FC19DF8C31001AB03E /* NotfoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874257FB19DF8C31001AB03E /* NotfoundViewController.m */; };
+		874257FF19DF8F67001AB03E /* Annotetion.m in Sources */ = {isa = PBXBuildFile; fileRef = 874257FE19DF8F67001AB03E /* Annotetion.m */; };
+		8773E60219DE4DCC0062FA6E /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8773E60119DE4DCC0062FA6E /* ChoiceViewController.m */; };
 		878B821919DE42810003D8E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 878B821819DE42810003D8E1 /* main.m */; };
 		878B821C19DE42810003D8E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 878B821B19DE42810003D8E1 /* AppDelegate.m */; };
 		878B821F19DE42810003D8E1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 878B821E19DE42810003D8E1 /* ViewController.m */; };
@@ -14,6 +22,10 @@
 		878B822419DE42810003D8E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 878B822319DE42810003D8E1 /* Images.xcassets */; };
 		878B822719DE42810003D8E1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 878B822519DE42810003D8E1 /* LaunchScreen.xib */; };
 		878B823319DE42810003D8E1 /* nominikoiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 878B823219DE42810003D8E1 /* nominikoiTests.m */; };
+		87974B7E19E23DAD00C0957C /* Anotetion.m in Sources */ = {isa = PBXBuildFile; fileRef = 87974B7D19E23DAD00C0957C /* Anotetion.m */; };
+		8799141B19DE70310010F804 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8799141A19DE70310010F804 /* MainViewController.m */; };
+		879C70B119E4F48100FE7A41 /* FailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879C70B019E4F48100FE7A41 /* FailViewController.m */; };
+		879C70B419E5060600FE7A41 /* SucsessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879C70B319E5060600FE7A41 /* SucsessViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +39,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		87138AC519E541F100E3CFFC /* gekido.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gekido.mp3; path = "../../../アプリの効果音/gekido.mp3"; sourceTree = "<group>"; };
+		8718794A19DE4C1A009F78BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8718794C19DE4C60009F78BC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8718794E19DE4C6F009F78BC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8718795019DE4CA1009F78BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		874257FA19DF8C31001AB03E /* NotfoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotfoundViewController.h; sourceTree = "<group>"; };
+		874257FB19DF8C31001AB03E /* NotfoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotfoundViewController.m; sourceTree = "<group>"; };
+		874257FD19DF8F67001AB03E /* Annotetion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotetion.h; sourceTree = "<group>"; };
+		874257FE19DF8F67001AB03E /* Annotetion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotetion.m; sourceTree = "<group>"; };
+		8773E60019DE4DCC0062FA6E /* ChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceViewController.h; sourceTree = "<group>"; };
+		8773E60119DE4DCC0062FA6E /* ChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceViewController.m; sourceTree = "<group>"; };
 		878B821319DE42810003D8E1 /* nominikoi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nominikoi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		878B821719DE42810003D8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		878B821819DE42810003D8E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +63,14 @@
 		878B822C19DE42810003D8E1 /* nominikoiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nominikoiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		878B823119DE42810003D8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		878B823219DE42810003D8E1 /* nominikoiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nominikoiTests.m; sourceTree = "<group>"; };
+		87974B7C19E23DAD00C0957C /* Anotetion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Anotetion.h; path = ../../../Anotetion.h; sourceTree = "<group>"; };
+		87974B7D19E23DAD00C0957C /* Anotetion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Anotetion.m; path = ../../../Anotetion.m; sourceTree = "<group>"; };
+		8799141919DE70310010F804 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		8799141A19DE70310010F804 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		879C70AF19E4F48100FE7A41 /* FailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailViewController.h; sourceTree = "<group>"; };
+		879C70B019E4F48100FE7A41 /* FailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailViewController.m; sourceTree = "<group>"; };
+		879C70B219E5060600FE7A41 /* SucsessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SucsessViewController.h; sourceTree = "<group>"; };
+		879C70B319E5060600FE7A41 /* SucsessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SucsessViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +78,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8718795119DE4CA1009F78BC /* CoreLocation.framework in Frameworks */,
+				8718794F19DE4C6F009F78BC /* AudioToolbox.framework in Frameworks */,
+				8718794D19DE4C60009F78BC /* AVFoundation.framework in Frameworks */,
+				8718794B19DE4C1A009F78BC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +98,10 @@
 		878B820A19DE42810003D8E1 = {
 			isa = PBXGroup;
 			children = (
+				8718795019DE4CA1009F78BC /* CoreLocation.framework */,
+				8718794E19DE4C6F009F78BC /* AudioToolbox.framework */,
+				8718794C19DE4C60009F78BC /* AVFoundation.framework */,
+				8718794A19DE4C1A009F78BC /* MapKit.framework */,
 				878B821519DE42810003D8E1 /* nominikoi */,
 				878B822F19DE42810003D8E1 /* nominikoiTests */,
 				878B821419DE42810003D8E1 /* Products */,
@@ -82,10 +121,24 @@
 			isa = PBXGroup;
 			children = (
 				878B821A19DE42810003D8E1 /* AppDelegate.h */,
+				87974B7C19E23DAD00C0957C /* Anotetion.h */,
+				87974B7D19E23DAD00C0957C /* Anotetion.m */,
 				878B821B19DE42810003D8E1 /* AppDelegate.m */,
 				878B821D19DE42810003D8E1 /* ViewController.h */,
 				878B821E19DE42810003D8E1 /* ViewController.m */,
 				878B822019DE42810003D8E1 /* Main.storyboard */,
+				879C70B219E5060600FE7A41 /* SucsessViewController.h */,
+				879C70B319E5060600FE7A41 /* SucsessViewController.m */,
+				879C70AF19E4F48100FE7A41 /* FailViewController.h */,
+				879C70B019E4F48100FE7A41 /* FailViewController.m */,
+				874257FD19DF8F67001AB03E /* Annotetion.h */,
+				874257FE19DF8F67001AB03E /* Annotetion.m */,
+				874257FA19DF8C31001AB03E /* NotfoundViewController.h */,
+				874257FB19DF8C31001AB03E /* NotfoundViewController.m */,
+				8799141919DE70310010F804 /* MainViewController.h */,
+				8799141A19DE70310010F804 /* MainViewController.m */,
+				8773E60019DE4DCC0062FA6E /* ChoiceViewController.h */,
+				8773E60119DE4DCC0062FA6E /* ChoiceViewController.m */,
 				878B822319DE42810003D8E1 /* Images.xcassets */,
 				878B822519DE42810003D8E1 /* LaunchScreen.xib */,
 				878B821619DE42810003D8E1 /* Supporting Files */,
@@ -96,6 +149,7 @@
 		878B821619DE42810003D8E1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				87138AC519E541F100E3CFFC /* gekido.mp3 */,
 				878B821719DE42810003D8E1 /* Info.plist */,
 				878B821819DE42810003D8E1 /* main.m */,
 			);
@@ -202,6 +256,7 @@
 				878B822219DE42810003D8E1 /* Main.storyboard in Resources */,
 				878B822719DE42810003D8E1 /* LaunchScreen.xib in Resources */,
 				878B822419DE42810003D8E1 /* Images.xcassets in Resources */,
+				87138AC619E541F100E3CFFC /* gekido.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,8 +275,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				878B821F19DE42810003D8E1 /* ViewController.m in Sources */,
+				874257FC19DF8C31001AB03E /* NotfoundViewController.m in Sources */,
+				874257FF19DF8F67001AB03E /* Annotetion.m in Sources */,
 				878B821C19DE42810003D8E1 /* AppDelegate.m in Sources */,
 				878B821919DE42810003D8E1 /* main.m in Sources */,
+				879C70B119E4F48100FE7A41 /* FailViewController.m in Sources */,
+				879C70B419E5060600FE7A41 /* SucsessViewController.m in Sources */,
+				8799141B19DE70310010F804 /* MainViewController.m in Sources */,
+				8773E60219DE4DCC0062FA6E /* ChoiceViewController.m in Sources */,
+				87974B7E19E23DAD00C0957C /* Anotetion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +474,7 @@
 				878B823819DE42810003D8E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		878B823919DE42810003D8E1 /* Build configuration list for PBXNativeTarget "nominikoiTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +483,7 @@
 				878B823B19DE42810003D8E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
