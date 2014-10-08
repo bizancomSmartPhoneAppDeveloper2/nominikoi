@@ -228,16 +228,9 @@
     //izakayadicのキー「results_available」の値が0でないか
     if (resultcount != 0) {
         NSLog(@"ヒット数:%d",resultcount);
-        //ループ処理を行う回数を格納
-        int loop = resultcount / 100;
-        //izakayacountが0で割り切れないか
-        if (resultcount % 100 != 0) {
-            //loopをインクリメント
-            loop++;
-        }
-        for (int i = 0; i < loop; i++) {
-            //検索結果を何件目から出力するか決める変数
-            int startpage = i * 100 + 1;
+        //検索結果を何件目から出力するか決める変数
+        int startpage = (arc4random() % resultcount) + 1;
+        NSLog(@"%d件目から検索",startpage);
             //検索結果を何件目から出力するか決めるためのパラメータを格納するための変数
             NSString *startstr = [NSString stringWithFormat:@"&start=%d",startpage];
             //apiurlの末尾にstartstrを追加した文字列の変数
@@ -253,7 +246,6 @@
                 //izakayaarrayの末尾にshoparrayのn番目の要素(要素の型はNSDictionary)を格納
                 [izakayaarray addObject:[shoparray objectAtIndex:n]];
             }
-        }
     }else{
         NSLog(@"ヒットなし");
         //GPSを停止
@@ -290,7 +282,7 @@
     region.center.latitude = (startlocation.coordinate.latitude + izakayalocation.coordinate.latitude) / 2;
     //マップが表示された時の中心の経度設定
     region.center.longitude = (startlocation.coordinate.longitude + izakayalocation.coordinate.longitude) / 2;
-    //現在地から店の距離によってマップの縮尺度を設定
+    //現在地から店の距離によってマップの縮尺度を設定(店とアプリを起動した位置の距離+150mの幅を設定)
     region.span.latitudeDelta = (dis + 0.15) / 111.2;
     region.span.longitudeDelta = (dis + 0.15) / 111.2;
     [self.map setRegion:region];
@@ -378,11 +370,15 @@
     self.timelabel.text = [NSString stringWithFormat:@"%02d:%02d",minute,seconds];
 }
 
+//ピンにあるボタンを押すと呼ばれるメソッド
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+    //アノテーションの変数を生成
     Annotetion *annotetion = (Annotetion*)view.annotation;
-    UIAlertView *alert;
+    //店名と住所の名前が書いてある文字列を生成
     NSString *info = [NSString stringWithFormat:@"店名:%@\n住所:%@",annotetion.title,annotetion.address];
-    alert = [[UIAlertView alloc]initWithTitle:@"居酒屋情報" message:info delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    //店名と住所を表示するアラートを生成
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"居酒屋情報" message:info delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    //アラートを表示
     [alert show];
 }
 @end
