@@ -24,6 +24,7 @@
     self.imageview.contentMode = UIViewContentModeScaleAspectFit;
     //アニメーションに使う画像を格納するための配列
     NSMutableArray *imagelist = [NSMutableArray array];
+    //配列の格納処理
     for (int i = 1; i <= 2; i++) {
         NSString *imagePath = [NSString stringWithFormat:@"joushibeel%d.png",i];
         UIImage *img = [UIImage imageNamed:imagePath];
