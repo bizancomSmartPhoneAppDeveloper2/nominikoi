@@ -12,6 +12,8 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 @interface NotfoundViewController ()
+//音源用のプロパティ
+@property AVAudioPlayer *sound;
 
 @end
 
@@ -21,8 +23,17 @@
     //背景色を夜の色に設定
     self.backview.backgroundColor = [UIColor colorWithRed: (0.0)/255.0 green: (0.0)/255.0 blue: (139.0)/255.0 alpha: 1.0];
     //最初の吹き出しの言葉を設定
-    self.fukidashi.text = @"ここら辺\n飲めるところがないよ";
+    self.fukidashi.text = @"お前が行きたい\n居酒屋がねえよ〜";
     [super viewDidLoad];
+    //音声ファイルの場所を示す文字列を格納
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"sad" ofType:@"mp3"];
+    //音声ファイルの場所をURL形式に変換
+    NSURL *url = [NSURL fileURLWithPath:path];
+    //urlを元にインスタンスを生成
+    self.sound = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:NULL];
+    //音声ファイルを再生
+    [self.sound play];
+
     //3秒後にメソッドfukidashichangeを実行
     [self performSelector:@selector(fukidashichange) withObject:nil afterDelay:3];
     // Do any additional setup after loading the view.
@@ -36,7 +47,7 @@
 //吹き出しの言葉を変えるメソッド
 -(void)fukidashichange{
     //2つめの吹き出しの言葉を設定
-    self.fukidashi.text = @"もっと\nにぎやかなところに\nしてくれよ〜";
+    self.fukidashi.text = @"別の場所にしてくれ〜\n贅沢するんじゃねよ〜";
     //3秒後にメソッドbackを実行
     [self performSelector:@selector(back) withObject:nil afterDelay:3];
 }

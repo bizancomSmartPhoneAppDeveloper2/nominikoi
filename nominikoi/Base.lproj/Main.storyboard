@@ -19,11 +19,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iriguchi" translatesAutoresizingMaskIntoConstraints="NO" id="V5K-e7-NPh">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nobori" translatesAutoresizingMaskIntoConstraints="NO" id="HV3-OZ-9aW">
-                                <rect key="frame" x="-8" y="20" width="328" height="183"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nobori" translatesAutoresizingMaskIntoConstraints="NO" id="HV3-OZ-9aW">
+                                <rect key="frame" x="-4" y="-75" width="328" height="338"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushibeel1" translatesAutoresizingMaskIntoConstraints="NO" id="QOT-ei-396">
-                                <rect key="frame" x="7" y="106" width="363" height="472"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushibeel1" translatesAutoresizingMaskIntoConstraints="NO" id="QOT-ei-396">
+                                <rect key="frame" x="-4" y="172" width="329" height="376"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="128"/>
+            <point key="canvasLocation" x="74" y="115"/>
         </scene>
         <!--Choice View Controller-->
         <scene sceneID="46N-zu-6Cb">
@@ -60,7 +60,7 @@
                                 <rect key="frame" x="119" y="203" width="196" height="162"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOX-Pd-gqK">
-                                <rect key="frame" x="101" y="472" width="118" height="65"/>
+                                <rect key="frame" x="98" y="419" width="118" height="65"/>
                                 <state key="normal" backgroundImage="tyuumon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -100,6 +100,9 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8e6-kH-SCL">
                                 <rect key="frame" x="0.0" y="20" width="320" height="207"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fukidashi" translatesAutoresizingMaskIntoConstraints="NO" id="6vH-Y3-LvV">
+                                        <rect key="frame" x="0.0" y="32" width="183" height="115"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgs-jp-dlU">
                                         <rect key="frame" x="13" y="8" width="170" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -107,11 +110,8 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fukidashi" translatesAutoresizingMaskIntoConstraints="NO" id="6vH-Y3-LvV">
-                                        <rect key="frame" x="0.0" y="32" width="183" height="115"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tuki" translatesAutoresizingMaskIntoConstraints="NO" id="xs5-Xk-0Xh">
-                                        <rect key="frame" x="255" y="8" width="72" height="51"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tuki" translatesAutoresizingMaskIntoConstraints="NO" id="xs5-Xk-0Xh">
+                                        <rect key="frame" x="276" y="8" width="36" height="51"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZQ-Ht-Mc4">
                                         <rect key="frame" x="59" y="155" width="92" height="49"/>
@@ -121,14 +121,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iht-37-iH7">
-                                        <rect key="frame" x="13" y="50" width="163" height="53"/>
+                                        <rect key="frame" x="8" y="55" width="163" height="53"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushibeel1" translatesAutoresizingMaskIntoConstraints="NO" id="AfT-VT-fuv">
-                                        <rect key="frame" x="175" y="32" width="128" height="186"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushibeel1" translatesAutoresizingMaskIntoConstraints="NO" id="AfT-VT-fuv">
+                                        <rect key="frame" x="167" y="67" width="145" height="140"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23631254809999999" green="0.1832086138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -172,21 +172,21 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGv-2A-er3">
                                 <rect key="frame" x="0.0" y="27" width="320" height="541"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushisample" translatesAutoresizingMaskIntoConstraints="NO" id="H0O-52-7kL">
-                                        <rect key="frame" x="53" y="134" width="292" height="447"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fukidashi" translatesAutoresizingMaskIntoConstraints="NO" id="deG-fA-gRB">
+                                        <rect key="frame" x="0.0" y="92" width="179" height="120"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fukidashi" translatesAutoresizingMaskIntoConstraints="NO" id="deG-fA-gRB">
-                                        <rect key="frame" x="-3" y="119" width="179" height="173"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tuki" translatesAutoresizingMaskIntoConstraints="NO" id="MrG-5u-Ole">
+                                        <rect key="frame" x="184" y="10" width="109" height="128"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushisample" translatesAutoresizingMaskIntoConstraints="NO" id="H0O-52-7kL">
+                                        <rect key="frame" x="57" y="188" width="270" height="305"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="バカモ〜ン" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-pl-ZJL">
-                                        <rect key="frame" x="0.0" y="146" width="172" height="76"/>
+                                        <rect key="frame" x="0.0" y="104" width="172" height="76"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tuki" translatesAutoresizingMaskIntoConstraints="NO" id="MrG-5u-Ole">
-                                        <rect key="frame" x="184" y="10" width="109" height="128"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23631254809999999" green="0.1832086138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -219,17 +219,17 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hBY-8S-TLQ">
                                 <rect key="frame" x="0.0" y="35" width="320" height="533"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushisad" translatesAutoresizingMaskIntoConstraints="NO" id="bdM-ra-7IM">
-                                        <rect key="frame" x="0.0" y="153" width="388" height="400"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fukidashi" translatesAutoresizingMaskIntoConstraints="NO" id="2O3-vg-62I">
+                                        <rect key="frame" x="0.0" y="8" width="210" height="202"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fukidashi" translatesAutoresizingMaskIntoConstraints="NO" id="2O3-vg-62I">
-                                        <rect key="frame" x="-9" y="124" width="184" height="186"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tuki" translatesAutoresizingMaskIntoConstraints="NO" id="3n3-xE-Nxu">
+                                        <rect key="frame" x="229" y="18" width="83" height="81"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tuki" translatesAutoresizingMaskIntoConstraints="NO" id="3n3-xE-Nxu">
-                                        <rect key="frame" x="178" y="8" width="134" height="128"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushisad" translatesAutoresizingMaskIntoConstraints="NO" id="bdM-ra-7IM">
+                                        <rect key="frame" x="68" y="147" width="268" height="334"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ここら辺飲めるところ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCZ-3G-bnw">
-                                        <rect key="frame" x="0.0" y="147" width="170" height="92"/>
+                                        <rect key="frame" x="8" y="56" width="170" height="77"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -263,17 +263,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="izakaya" translatesAutoresizingMaskIntoConstraints="NO" id="BaT-La-NuS">
-                                <rect key="frame" x="-6" y="8" width="333" height="574"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mise" translatesAutoresizingMaskIntoConstraints="NO" id="BaT-La-NuS">
+                                <rect key="frame" x="-32" y="20" width="385" height="554"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushibeel3" translatesAutoresizingMaskIntoConstraints="NO" id="viI-nk-cRl">
-                                <rect key="frame" x="78" y="128" width="293" height="476"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joushibeel3" translatesAutoresizingMaskIntoConstraints="NO" id="viI-nk-cRl">
+                                <rect key="frame" x="-3" y="264" width="320" height="296"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fukidashi" translatesAutoresizingMaskIntoConstraints="NO" id="dlQ-M8-1v1">
-                                <rect key="frame" x="-6" y="106" width="213" height="170"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fukidashi" translatesAutoresizingMaskIntoConstraints="NO" id="dlQ-M8-1v1">
+                                <rect key="frame" x="0.0" y="159" width="213" height="170"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="お〜お疲れ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNh-ey-bKG">
-                                <rect key="frame" x="8" y="126" width="192" height="87"/>
+                                <rect key="frame" x="0.0" y="193" width="208" height="80"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -281,6 +281,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="r7v-PG-pD6"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="fukidashi" destination="KNh-ey-bKG" id="00d-v6-3kU"/>
@@ -290,20 +291,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GhV-G7-nGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="559" y="-604"/>
+            <point key="canvasLocation" x="535" y="-513"/>
         </scene>
     </scenes>
     <resources>
-        <image name="fukidashi" width="640" height="400"/>
+        <image name="fukidashi" width="598" height="281"/>
         <image name="iriguchi" width="500" height="650"/>
-        <image name="izakaya" width="450" height="641"/>
-        <image name="joushibeel1" width="1600" height="1200"/>
-        <image name="joushibeel3" width="1600" height="1200"/>
-        <image name="joushisad" width="1600" height="1200"/>
-        <image name="joushisample" width="1600" height="1200"/>
+        <image name="joushibeel1" width="1212" height="1017"/>
+        <image name="joushibeel3" width="1188" height="1017"/>
+        <image name="joushisad" width="708" height="1017"/>
+        <image name="joushisample" width="996" height="1077"/>
         <image name="menyu-q" width="400" height="640"/>
-        <image name="nobori" width="640" height="400"/>
-        <image name="tuki" width="100" height="100"/>
+        <image name="mise" width="450" height="800"/>
+        <image name="nobori" width="614" height="211"/>
+        <image name="tuki" width="76" height="85"/>
         <image name="tyuumon" width="200" height="150"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -312,6 +313,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ixj-iW-6i5"/>
+        <segue reference="wiz-bd-apd"/>
     </inferredMetricsTieBreakers>
 </document>

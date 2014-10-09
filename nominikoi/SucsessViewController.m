@@ -12,12 +12,18 @@
 
 
 @interface SucsessViewController ()
+//音源用のプロパティ
+@property AVAudioPlayer *voice;
+@property AVAudioPlayer *sound;
 
 @end
 
 @implementation SucsessViewController
 
 - (void)viewDidLoad {
+    //imageviewのアスペクト比を維持
+    self.imageview.contentMode = UIViewContentModeScaleAspectFit;
+    //最初の吹き出し言葉を設定
     self.fukidashi.text = @"お〜お疲れ\n先に飲んじゃってごめん。";
     [super viewDidLoad];
     //3秒後にメソッドfirstfukidashiを実行
@@ -79,6 +85,23 @@
     self.imageview.animationRepeatCount = 1;
     //アニメーションを開始
     [self.imageview startAnimating];
+    //音声ファイルの場所を示す文字列を格納
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"kanpai" ofType:@"mp3"];
+    //音声ファイルの場所をURL形式に変換
+    NSURL *url = [NSURL fileURLWithPath:path];
+    //urlを元にインスタンスを生成
+    self.voice = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:NULL];
+    //音声ファイルの場所を示す文字列を格納
+    path = [[NSBundle mainBundle]pathForResource:@"glass" ofType:@"mp3"];
+    //音声ファイルの場所をURL形式に変換
+    url = [NSURL fileURLWithPath:path];
+    //urlを元にインスタンスを生成
+    self.sound = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:NULL];
+    //音声ファイルを再生
+    [self.voice play];
+    //音声ファイルを再生
+    [self.sound play];
+
     //3秒後にメソッドbackを実行
     [self performSelector:@selector(back) withObject:nil afterDelay:3];
 }

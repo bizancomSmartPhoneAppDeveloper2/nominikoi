@@ -83,11 +83,13 @@
     }
 }
 
-//スタートボタンを押したらよばれるメソッド
+//注文ボタンを押したらよばれるメソッド
 - (IBAction)start:(id)sender {
     //名前がsecondsegueであるセグエを実行
      [self performSegueWithIdentifier:@"secondsegue" sender:self];
 }
+
+
 
 //画面遷移が行われる前に呼ばれるメソッド
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

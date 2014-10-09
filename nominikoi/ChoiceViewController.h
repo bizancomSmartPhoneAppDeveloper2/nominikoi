@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *timepicker;
 //予算を選ぶためのUIPicker
 @property (weak, nonatomic) IBOutlet UIPickerView *moneypicker;
+//注文ボタンを押したら呼ばれるメソッド
 - (IBAction)start:(id)sender;
+
 
 @end

@@ -37,6 +37,8 @@
 @implementation MainViewController
 
 - (void)viewDidLoad {
+    //charaimageのアスペクト比を維持する
+    self.charaimage.contentMode = UIViewContentModeScaleAspectFit;
     //backviewの背景色を設定
     self.backview.backgroundColor = [UIColor colorWithRed: (0.0)/255.0 green: (0.0)/255.0 blue: (139.0)/255.0 alpha: 1.0];
     //mapのデリゲートを自分自身に設定
@@ -113,6 +115,10 @@
         //位置情報の使用をアプリ起動時のみ許可してもらうよう要求
         [manager requestWhenInUseAuthorization];
     }
+    //GPSの測位の制度を指定
+    //manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    //GPSの位置情報取得間隔を設定
+    //manager.distanceFilter = 10.0;
     //GPSを起動
     [manager startUpdatingLocation];
     [super viewDidLoad];
@@ -179,7 +185,7 @@
         float dis = (float)[izakayalocation distanceFromLocation:nowlocation];
         NSLog(@"居酒屋までの距離 %f m",dis);
         //距離が5m以内か
-        if (dis < 5) {
+        if (dis < 10) {
             //タイマーを止める
             [timer invalidate];
             timer = nil;
@@ -294,8 +300,6 @@
     izakayaano.address = [choice objectForKey:@"address"];
     //アノテーションを追加
     [self.map addAnnotation:izakayaano];
-    minute = 0;
-    seconds = 30;
     //ラベルfukidashiに表示する文字列を変更
     self.fukidashi.text = @"ここで待ってるからな";
     //1秒ごとにメソッドcountdownを実行

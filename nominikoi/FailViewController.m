@@ -13,6 +13,7 @@
 @interface FailViewController ()
 //音源用のプロパティ
 @property AVAudioPlayer *voice;
+@property AVAudioPlayer *sound;
 
 @end
 
@@ -30,8 +31,17 @@
     NSURL *url = [NSURL fileURLWithPath:path];
     //urlを元にインスタンスを生成
     self.voice = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:NULL];
+    //音声ファイルの場所を示す文字列を格納
+    path = [[NSBundle mainBundle]pathForResource:@"bad" ofType:@"mp3"];
+    //音声ファイルの場所をURL形式に変換
+    url = [NSURL fileURLWithPath:path];
+    //urlを元にインスタンスを生成
+    self.sound = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:NULL];
+
     //音声ファイルを再生
-    [self.voice play];
+    [self.sound play];
+    //3秒後にメソッドfukidashichangeを実行
+    [self performSelector:@selector(firstvoice) withObject:nil afterDelay:1];
     //3秒後にメソッドfukidashichangeを実行
     [self performSelector:@selector(firstselifu) withObject:nil afterDelay:3];
     // Do any additional setup after loading the view.
@@ -51,6 +61,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)firstvoice{
+    //音声ファイルを再生
+    [self.voice play];
+}
 
 //吹き出しの言葉を変えるメソッド
 -(void)firstselifu{
