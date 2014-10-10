@@ -22,6 +22,15 @@
 @implementation ChoiceViewController
 
 - (void)viewDidLoad {
+    NSLog(@"%@",self.accoutid);
+    //文字列accoutidの長さが0より大きいか
+    if ([self.accoutid length] > 0) {
+        //ボタンを文字の名前をlogoutにする
+        [self.logbutton setTitle:@"logout" forState:UIControlStateNormal];
+    }else{
+        //そうでない場合はloginにする
+        [self.logbutton setTitle:@"login" forState:UIControlStateNormal];
+    }
     //2つのpickerのデリゲートとデータソースを自分自身に設定
     self.timepicker.delegate = self;
     self.timepicker.dataSource = self;
@@ -89,18 +98,36 @@
      [self performSegueWithIdentifier:@"secondsegue" sender:self];
 }
 
+//ログインボタンを押したらよばれるメソッド
 - (IBAction)idsegue:(id)sender {
+    if ([[self.logbutton currentTitle
+         ] isEqualToString:@"logout"]) {
+        //accoutidを空にする
+        self.accoutid = nil;
+        //ボタンの名前をloginにする
+        [self.logbutton setTitle:@"login" forState:UIControlStateNormal];
+    }else{
+    //名前がsecondsegueであるセグエを実行
+    [self performSegueWithIdentifier:@"loginsegue" sender:self];
+    }
 }
 
 
 
 //画面遷移が行われる前に呼ばれるメソッド
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    MainViewController *maincon = segue.destinationViewController;
-    //mapcon.timestrにtimepickerで選んだ要素を格納
-    maincon.timestr = [timearray objectAtIndex:[self.timepicker selectedRowInComponent:0]];
-    //mapcon.moneyにmoneypickerで選んだ要素を格納
-    maincon.moneystr = [moneyarray objectAtIndex:[self.moneypicker selectedRowInComponent:0]];
-     
+    //セグエの名前がsecondsegueであるか
+    if ([[segue identifier] isEqualToString:@"secondsegue"]) {
+        MainViewController *maincon = segue.destinationViewController;
+        //mapcon.timestrにtimepickerで選んだ要素を格納
+        maincon.timestr = [timearray objectAtIndex:[self.timepicker selectedRowInComponent:0]];
+        //mapcon.moneyにmoneypickerで選んだ要素を格納
+        maincon.moneystr = [moneyarray objectAtIndex:[self.moneypicker selectedRowInComponent:0]];
+        //文字列accouidの長さが0より大きいか
+        if ([self.accoutid length] > 0) {
+            //ログイン状態を維持
+            maincon.accoutid = self.accoutid;
+        }
+    }
 }
 @end

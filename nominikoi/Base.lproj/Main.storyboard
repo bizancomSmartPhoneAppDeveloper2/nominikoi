@@ -69,8 +69,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZP-kn-RaM">
-                                <rect key="frame" x="134" y="505" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="134" y="505" width="45" height="30"/>
+                                <state key="normal" title="button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -82,6 +82,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="logbutton" destination="AZP-kn-RaM" id="7p8-xN-lHZ"/>
                         <outlet property="moneypicker" destination="eiP-u5-nju" id="2wn-Gb-hmw"/>
                         <outlet property="timepicker" destination="bgm-oE-YHa" id="P46-Uc-A0j"/>
                         <segue destination="obg-Ue-Syl" kind="modal" identifier="secondsegue" animates="NO" id="GFo-OU-ifS"/>
@@ -129,12 +130,30 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9v-V8-thB">
-                                <rect key="frame" x="134" y="425" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9v-V8-thB">
+                                <rect key="frame" x="30" y="425" width="237" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAr-HL-jzd">
+                                <rect key="frame" x="137" y="347" width="33" height="30"/>
+                                <state key="normal" title="login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="yUu-qN-1eP" eventType="touchUpInside" id="rR9-fS-aas"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCn-X5-K0q">
+                                <rect key="frame" x="194" y="347" width="34" height="30"/>
+                                <state key="normal" title="back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="yUu-qN-1eP" eventType="touchUpInside" id="TZh-9b-gfh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -142,6 +161,8 @@
                     <connections>
                         <outlet property="IDtextfield" destination="3qv-Nl-Iv6" id="q0u-VF-nIg"/>
                         <outlet property="Passtextfield" destination="jmm-73-L5e" id="Dcu-R0-aSp"/>
+                        <outlet property="warning" destination="d9v-V8-thB" id="4V3-id-br6"/>
+                        <segue destination="Rev-6t-aoF" kind="modal" identifier="accountsegue" animates="NO" id="8IV-J6-Kmk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ov-Eb-ho4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -380,6 +401,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wiz-bd-apd"/>
+        <segue reference="8IV-J6-Kmk"/>
     </inferredMetricsTieBreakers>
 </document>

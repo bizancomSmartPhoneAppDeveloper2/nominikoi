@@ -8,6 +8,7 @@
 //検索失敗画面を管理するクラス
 
 #import "NotfoundViewController.h"
+#import "ChoiceViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
@@ -20,6 +21,7 @@
 @implementation NotfoundViewController
 
 - (void)viewDidLoad {
+    NSLog(@"%@",self.accoutid);
     //背景色を夜の色に設定
     self.backview.backgroundColor = [UIColor colorWithRed: (0.0)/255.0 green: (0.0)/255.0 blue: (139.0)/255.0 alpha: 1.0];
     //最初の吹き出しの言葉を設定
@@ -66,5 +68,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+//画面遷移する前に呼ばれるメソッド
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //accountidの長さ0であるか
+    if ([self.accoutid length] > 0) {
+            ChoiceViewController *cvc = segue.destinationViewController;
+        //cvcのaccoutidに自分のaccoutidを格納
+        //これでログイン状態を維持
+        cvc.accoutid = self.accoutid;
+    }
+}
 
 @end

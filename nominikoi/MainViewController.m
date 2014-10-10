@@ -10,6 +10,9 @@
 
 #import "MainViewController.h"
 #import "Annotetion.h"
+#import "NotfoundViewController.h"
+#import "FailViewController.h"
+#import "SucsessViewController.h"
 
 
 @interface MainViewController ()<CLLocationManagerDelegate,MKMapViewDelegate>{
@@ -38,6 +41,7 @@
 @implementation MainViewController
 
 - (void)viewDidLoad {
+    NSLog(@"%@",self.accoutid);
     //距離に関するパラメータを格納するための変数
     NSString* range = @"&range=";
     //shoplabelの初期化
@@ -132,6 +136,7 @@
         NSLog(@"居酒屋までの距離 %f m",dis);
         //距離が5m以内か
         if (dis < 10) {
+            //sucsessメソッドを実行
             [self sucsess];
         }
     }
@@ -387,12 +392,36 @@
     [manager startUpdatingLocation];
 }
 
+//成功画面に移るため野メソッド
 -(void)sucsess{
+    //GPSを止める
     [manager stopUpdatingLocation];
     //タイマーを止める
     [timer invalidate];
     timer = nil;
     //成功の画面に移る
     [self performSegueWithIdentifier:@"sucsesssegue" sender:self];
+}
+
+//画面遷移する前に呼ばれるメソッド
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //accountidの長さ0であるか
+    if ([self.accoutid length] > 0) {
+        //セグエの名前がnotfoundsegueであるか
+        if ([[segue identifier] isEqualToString:@"notfoundsegue"]) {
+            //検索失敗画面先にidを継承
+            NotfoundViewController *nvc = segue.destinationViewController;
+            nvc.accoutid = self.accoutid;
+        }else if([[segue identifier] isEqualToString:@"failsegue"]){
+            //失敗画面先にidを継承
+            FailViewController *fvc = segue.destinationViewController;
+            fvc.accoutid = self.accoutid;
+        }else if([[segue identifier] isEqualToString:@"sucsesssegue"]){
+            //成功画面先にidを継承
+            SucsessViewController *svc = segue.destinationViewController;
+            svc.accoutid = self.accoutid;
+        }
+        
+    }
 }
 @end

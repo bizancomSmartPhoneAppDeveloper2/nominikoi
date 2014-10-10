@@ -11,5 +11,7 @@
 @interface NotfoundViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *backview;
 @property (weak, nonatomic) IBOutlet UILabel *fukidashi;
+//アカウントのIDを格納するための変数
+@property (nonatomic) NSString* accoutid;
 
 @end

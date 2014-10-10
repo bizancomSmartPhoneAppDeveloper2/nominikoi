@@ -7,6 +7,7 @@
 // 成功画面を管理するクラス
 
 #import "SucsessViewController.h"
+#import "ChoiceViewController.h"
 
 
 
@@ -18,6 +19,7 @@
 @implementation SucsessViewController
 
 - (void)viewDidLoad {
+    NSLog(@"%@",self.accoutid);
     //最初の吹き出し言葉を設定
     self.fukidashi.text = @"お〜お疲れ\n先に飲んじゃってごめん。";
     //imageviewのアスペクト比を維持
@@ -123,4 +125,14 @@
 }
 */
 
+//画面遷移する前に呼ばれるメソッド
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //accountidの長さ0であるか
+    if ([self.accoutid length] > 0) {
+        ChoiceViewController *cvc = segue.destinationViewController;
+        //cvcのaccoutidに自分のaccoutidを格納
+        //これでログイン状態を維持
+        cvc.accoutid = self.accoutid;
+    }
+}
 @end

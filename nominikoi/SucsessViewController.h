@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageview;
 @property (retain,nonatomic) AVAudioPlayer *voice;
 @property (retain,nonatomic) AVAudioPlayer *sound;
+//アカウントのIDを格納するための変数
+@property (nonatomic) NSString* accoutid;
 
 
 @end
