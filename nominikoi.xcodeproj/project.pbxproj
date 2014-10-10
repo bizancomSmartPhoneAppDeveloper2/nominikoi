@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		87138AC619E541F100E3CFFC /* gekido.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 87138AC519E541F100E3CFFC /* gekido.mp3 */; };
+		8718594019E7DCDB00125BE3 /* Webreturn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8718593F19E7DCDB00125BE3 /* Webreturn.m */; };
 		8718794B19DE4C1A009F78BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8718794A19DE4C1A009F78BC /* MapKit.framework */; };
 		8718794D19DE4C60009F78BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8718794C19DE4C60009F78BC /* AVFoundation.framework */; };
 		8718794F19DE4C6F009F78BC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8718794E19DE4C6F009F78BC /* AudioToolbox.framework */; };
@@ -44,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		87138AC519E541F100E3CFFC /* gekido.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gekido.mp3; path = "../../../アプリの効果音/gekido.mp3"; sourceTree = "<group>"; };
+		8718593E19E7DCDB00125BE3 /* Webreturn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webreturn.h; sourceTree = "<group>"; };
+		8718593F19E7DCDB00125BE3 /* Webreturn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webreturn.m; sourceTree = "<group>"; };
 		8718794A19DE4C1A009F78BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8718794C19DE4C60009F78BC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8718794E19DE4C6F009F78BC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 				874257FB19DF8C31001AB03E /* NotfoundViewController.m */,
 				8799141919DE70310010F804 /* MainViewController.h */,
 				8799141A19DE70310010F804 /* MainViewController.m */,
+				8718593E19E7DCDB00125BE3 /* Webreturn.h */,
+				8718593F19E7DCDB00125BE3 /* Webreturn.m */,
 				8773E60019DE4DCC0062FA6E /* ChoiceViewController.h */,
 				8773E60119DE4DCC0062FA6E /* ChoiceViewController.m */,
 				878B822319DE42810003D8E1 /* Images.xcassets */,
@@ -299,6 +304,7 @@
 				878B821919DE42810003D8E1 /* main.m in Sources */,
 				879C70B119E4F48100FE7A41 /* FailViewController.m in Sources */,
 				879C70B419E5060600FE7A41 /* SucsessViewController.m in Sources */,
+				8718594019E7DCDB00125BE3 /* Webreturn.m in Sources */,
 				8799141B19DE70310010F804 /* MainViewController.m in Sources */,
 				8773E60219DE4DCC0062FA6E /* ChoiceViewController.m in Sources */,
 			);

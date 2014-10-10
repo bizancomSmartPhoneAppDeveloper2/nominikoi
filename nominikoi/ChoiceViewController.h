@@ -24,5 +24,7 @@
 - (IBAction)idsegue:(id)sender;
 //ログイン関係のボタン
 @property (weak, nonatomic) IBOutlet UIButton *logbutton;
+- (IBAction)history:(id)sender;
+
 
 @end

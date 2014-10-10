@@ -9,12 +9,15 @@
 
 #import "ChoiceViewController.h"
 #import "MainViewController.h"
+#import "Webreturn.h"
 
-@interface ChoiceViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>{
+@interface ChoiceViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UIActionSheetDelegate>{
     //選択する時間の要素を格納する配列
     NSArray *timearray;
     //選択する予算の要素を格納する配列
     NSArray *moneyarray;
+    //行った店の履歴の情報を格納する配列
+    NSMutableArray *shoparray;
 }
 
 @end
@@ -125,9 +128,55 @@
         maincon.moneystr = [moneyarray objectAtIndex:[self.moneypicker selectedRowInComponent:0]];
         //文字列accouidの長さが0より大きいか
         if ([self.accoutid length] > 0) {
-            //ログイン状態を維持
+            //次の画面もログイン状態を維持
             maincon.accoutid = self.accoutid;
         }
+    }
+}
+
+//履歴ボタンを押したら呼ばれるメソッド
+- (IBAction)history:(id)sender {
+    shoparray = [NSMutableArray array];
+    //文字列accoutidの長さが0より大きいか(ログイン状態であるか)
+    if ([self.accoutid length] > 0) {
+        //Webreturn型の変数を格納
+        Webreturn *web = [[Webreturn alloc]init];
+        //履歴のデータをとってくるURLを格納
+        NSString *urlstr = @"http://smartshinobu.miraiserver.com/shophistory.php?id=";
+        //urlstrの末尾にアカウントIDを追加
+        urlstr = [urlstr stringByAppendingString:self.accoutid];
+        //urlstr先のデータを格納
+        NSData *data = [web ServerData:urlstr];
+        NSError *err;
+        //jsonデータを格納
+        shoparray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
+        NSLog(@"%@",shoparray);
+        //shoparrayに情報が格納されているかどうか
+        if ((shoparray != nil) && ([shoparray count] > 0)){
+            //UIActionSheet型の変数を生成
+            UIActionSheet *as = [[UIActionSheet alloc]init];
+            //アクションシートのタイトルを設定
+            as.title = @"2度といきたくない店を選択してください";
+            //shoparrayの要素分、アクションシートのボタンを追加する
+            for (int i = 0; i < [shoparray count]; i++) {
+                NSDictionary *shopdic = [shoparray objectAtIndex:i];
+                //ボタンのタイトルを店の名前にする
+                [as addButtonWithTitle:[shopdic objectForKey:@"shopname"]];
+            }
+            //最後にキャンセルボタンを生成
+            [as addButtonWithTitle:@"キャンセル"];
+            as.cancelButtonIndex = [shoparray count] + 1;
+            //アクションシートを表示
+            [as showInView:self.view];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"警告" message:@"履歴がありません" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            //警告画面表示
+            [alert show];
+        }
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"警告" message:@"ログインしないと履歴が見れません" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        //警告画面表示
+        [alert show];
     }
 }
 @end

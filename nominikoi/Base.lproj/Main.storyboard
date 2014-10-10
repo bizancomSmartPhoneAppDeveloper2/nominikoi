@@ -60,7 +60,7 @@
                                 <rect key="frame" x="119" y="203" width="196" height="162"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOX-Pd-gqK">
-                                <rect key="frame" x="98" y="419" width="118" height="65"/>
+                                <rect key="frame" x="97" y="397" width="118" height="65"/>
                                 <state key="normal" backgroundImage="tyuumon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -69,12 +69,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZP-kn-RaM">
-                                <rect key="frame" x="134" y="505" width="45" height="30"/>
+                                <rect key="frame" x="61" y="495" width="45" height="30"/>
                                 <state key="normal" title="button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="idsegue:" destination="Rev-6t-aoF" eventType="touchUpInside" id="xn1-fs-Sda"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7a-Su-Mnx">
+                                <rect key="frame" x="206" y="495" width="30" height="30"/>
+                                <state key="normal" title="履歴">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="history:" destination="Rev-6t-aoF" eventType="touchUpInside" id="ZWy-yy-bTU"/>
                                 </connections>
                             </button>
                         </subviews>
