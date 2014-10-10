@@ -8,8 +8,6 @@
 
 #import "SucsessViewController.h"
 
-
-
 @interface SucsessViewController ()
 
 @end
