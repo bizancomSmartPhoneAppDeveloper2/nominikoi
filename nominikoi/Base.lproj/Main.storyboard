@@ -68,15 +68,6 @@
                                     <action selector="start:" destination="Rev-6t-aoF" eventType="touchUpInside" id="xpJ-wG-OYZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZP-kn-RaM">
-                                <rect key="frame" x="134" y="505" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="idsegue:" destination="Rev-6t-aoF" eventType="touchUpInside" id="xn1-fs-Sda"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -85,68 +76,11 @@
                         <outlet property="moneypicker" destination="eiP-u5-nju" id="2wn-Gb-hmw"/>
                         <outlet property="timepicker" destination="bgm-oE-YHa" id="P46-Uc-A0j"/>
                         <segue destination="obg-Ue-Syl" kind="modal" identifier="secondsegue" animates="NO" id="GFo-OU-ifS"/>
-                        <segue destination="yUu-qN-1eP" kind="modal" identifier="loginsegue" animates="NO" id="SxL-j5-EXo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3I-j8-fyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="496" y="123"/>
-        </scene>
-        <!--Login View Controller-->
-        <scene sceneID="r9r-gb-Enr">
-            <objects>
-                <viewController id="yUu-qN-1eP" customClass="LoginViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="det-zj-Qqz"/>
-                        <viewControllerLayoutGuide type="bottom" id="MLW-79-F4k"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="BY0-CH-UkI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="haikei" translatesAutoresizingMaskIntoConstraints="NO" id="Shm-f1-z9m">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3qv-Nl-Iv6">
-                                <rect key="frame" x="55" y="114" width="200" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmm-73-L5e">
-                                <rect key="frame" x="55" y="234" width="200" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5G-wk-op7">
-                                <rect key="frame" x="139" y="78" width="28" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="パスワード" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2m-pB-NTa">
-                                <rect key="frame" x="103" y="199" width="105" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9v-V8-thB">
-                                <rect key="frame" x="134" y="425" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="IDtextfield" destination="3qv-Nl-Iv6" id="q0u-VF-nIg"/>
-                        <outlet property="Passtextfield" destination="jmm-73-L5e" id="Dcu-R0-aSp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6ov-Eb-ho4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="496" y="905"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="IrV-Mt-3kI">
@@ -362,7 +296,6 @@
     </scenes>
     <resources>
         <image name="fukidashi" width="598" height="281"/>
-        <image name="haikei" width="272" height="483"/>
         <image name="iriguchi" width="500" height="650"/>
         <image name="joushibeel1" width="1212" height="1017"/>
         <image name="joushibeel3" width="1188" height="1017"/>
