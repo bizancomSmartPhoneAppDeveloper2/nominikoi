@@ -89,11 +89,13 @@
      [self performSegueWithIdentifier:@"secondsegue" sender:self];
 }
 
+- (IBAction)idsegue:(id)sender {
+}
+
 
 
 //画面遷移が行われる前に呼ばれるメソッド
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
     MainViewController *maincon = segue.destinationViewController;
     //mapcon.timestrにtimepickerで選んだ要素を格納
     maincon.timestr = [timearray objectAtIndex:[self.timepicker selectedRowInComponent:0]];

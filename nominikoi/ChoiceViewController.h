@@ -17,5 +17,6 @@
 //注文ボタンを押したら呼ばれるメソッド
 - (IBAction)start:(id)sender;
 
+- (IBAction)idsegue:(id)sender;
 
 @end

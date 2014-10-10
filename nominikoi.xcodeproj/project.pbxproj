@@ -12,6 +12,7 @@
 		8718794D19DE4C60009F78BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8718794C19DE4C60009F78BC /* AVFoundation.framework */; };
 		8718794F19DE4C6F009F78BC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8718794E19DE4C6F009F78BC /* AudioToolbox.framework */; };
 		8718795119DE4CA1009F78BC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8718795019DE4CA1009F78BC /* CoreLocation.framework */; };
+		872A238819E6C7A60097EBF0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 872A238719E6C7A60097EBF0 /* LoginViewController.m */; };
 		874257FC19DF8C31001AB03E /* NotfoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874257FB19DF8C31001AB03E /* NotfoundViewController.m */; };
 		874257FF19DF8F67001AB03E /* Annotetion.m in Sources */ = {isa = PBXBuildFile; fileRef = 874257FE19DF8F67001AB03E /* Annotetion.m */; };
 		8773E60219DE4DCC0062FA6E /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8773E60119DE4DCC0062FA6E /* ChoiceViewController.m */; };
@@ -47,6 +48,8 @@
 		8718794C19DE4C60009F78BC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8718794E19DE4C6F009F78BC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8718795019DE4CA1009F78BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		872A238619E6C7A60097EBF0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		872A238719E6C7A60097EBF0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		874257FA19DF8C31001AB03E /* NotfoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotfoundViewController.h; sourceTree = "<group>"; };
 		874257FB19DF8C31001AB03E /* NotfoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotfoundViewController.m; sourceTree = "<group>"; };
 		874257FD19DF8F67001AB03E /* Annotetion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotetion.h; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				878B821D19DE42810003D8E1 /* ViewController.h */,
 				878B821E19DE42810003D8E1 /* ViewController.m */,
 				878B822019DE42810003D8E1 /* Main.storyboard */,
+				872A238619E6C7A60097EBF0 /* LoginViewController.h */,
+				872A238719E6C7A60097EBF0 /* LoginViewController.m */,
 				879C70B219E5060600FE7A41 /* SucsessViewController.h */,
 				879C70B319E5060600FE7A41 /* SucsessViewController.m */,
 				879C70AF19E4F48100FE7A41 /* FailViewController.h */,
@@ -290,6 +295,7 @@
 				874257FC19DF8C31001AB03E /* NotfoundViewController.m in Sources */,
 				874257FF19DF8F67001AB03E /* Annotetion.m in Sources */,
 				878B821C19DE42810003D8E1 /* AppDelegate.m in Sources */,
+				872A238819E6C7A60097EBF0 /* LoginViewController.m in Sources */,
 				878B821919DE42810003D8E1 /* main.m in Sources */,
 				879C70B119E4F48100FE7A41 /* FailViewController.m in Sources */,
 				879C70B419E5060600FE7A41 /* SucsessViewController.m in Sources */,
