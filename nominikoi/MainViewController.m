@@ -34,6 +34,10 @@
     NSMutableArray *izakayaarray;
     //カウントダウンを行うために使われるタイマー変数
     NSTimer *timer;
+    //居酒屋のIDを格納するための変数
+    NSString *shopid;
+    //居酒屋の名前を格納するための変数
+    NSString *shopname;
 }
 
 @end
@@ -245,6 +249,10 @@
     izakayaano.title = [choice objectForKey:@"name"];
     //住所の情報を格納
     izakayaano.address = [choice objectForKey:@"address"];
+    //居酒屋のIDを格納
+    shopid = [choice objectForKey:@"id"];
+    //居酒屋の名前を格納
+    shopname = izakayaano.title;
     //アノテーションを追加
     [self.map addAnnotation:izakayaano];
     //ラベルfukidashiに表示する文字列を変更
@@ -420,6 +428,9 @@
             //成功画面先にidを継承
             SucsessViewController *svc = segue.destinationViewController;
             svc.accoutid = self.accoutid;
+            //居酒屋のidと名前を成功画面のクラスのプロパティに格納
+            svc.shopid = shopid;
+            svc.shopname = shopname;
         }
         
     }
