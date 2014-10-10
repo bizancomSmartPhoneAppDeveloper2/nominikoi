@@ -86,9 +86,15 @@
     NSURL *url = [NSURL fileURLWithPath:path];
     //urlを元にインスタンスを生成
     self.voice = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:NULL];
+    //音声ファイルの場所を示す文字列を格納
+    path = [[NSBundle mainBundle]pathForResource:@"glass" ofType:@"mp3"];
+    //音声ファイルの場所をURL形式に変換
+    url = [NSURL fileURLWithPath:path];
+    //urlを元にインスタンスを生成
+    self.sound = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:NULL];
     //音声ファイルを再生
     [self.voice play];
-     
+    [self.sound play];
 
     //3秒後にメソッドbackを実行
     [self performSelector:@selector(back) withObject:nil afterDelay:3];

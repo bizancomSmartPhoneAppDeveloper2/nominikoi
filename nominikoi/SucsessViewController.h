@@ -16,5 +16,7 @@
 //キャラクターの画像を表示するためのimageview
 @property (weak, nonatomic) IBOutlet UIImageView *imageview;
 @property (retain,nonatomic) AVAudioPlayer *voice;
+@property (retain,nonatomic) AVAudioPlayer *sound;
+
 
 @end
