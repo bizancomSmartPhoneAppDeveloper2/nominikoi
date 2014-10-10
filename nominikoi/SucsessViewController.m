@@ -12,7 +12,6 @@
 
 @interface SucsessViewController ()
 
-
 @end
 
 @implementation SucsessViewController
