@@ -13,6 +13,7 @@
 #import "NotfoundViewController.h"
 #import "FailViewController.h"
 #import "SucsessViewController.h"
+#import "Webreturn.h"
 
 
 @interface MainViewController ()<CLLocationManagerDelegate,MKMapViewDelegate>{
@@ -34,10 +35,12 @@
     NSMutableArray *izakayaarray;
     //カウントダウンを行うために使われるタイマー変数
     NSTimer *timer;
-    //居酒屋のIDを格納するための変数
+    //履歴に追加するため居酒屋のIDを格納するための変数
     NSString *shopid;
-    //居酒屋の名前を格納するための変数
+    //履歴に追加するため居酒屋の名前を格納するための変数
     NSString *shopname;
+    //NGの店のIDを格納するための配列
+    NSArray *NGarray;
 }
 
 @end
@@ -213,7 +216,6 @@
     NSError *err = nil;
     //requestによって返ってきたデータを生成
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
-    NSLog(@"エラーは%@",err.localizedDescription);
     //dataを元にJSONオブジェクトを生成
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
     //値を返す
@@ -222,6 +224,18 @@
 
 //指定条件にあった居酒屋の情報を取得するためのメソッド
 -(void)setup{
+    //文字列accountidの長さが0より大きいか(ログイン状態であるか)
+    if ([self.accoutid length] > 0) {
+        //Webreturn型の変数を生成
+        Webreturn *web = [[Webreturn alloc]init];
+        //NGの店のIDを取り出す先のURLを格納
+        NSString *serverurl = @"http://smartshinobu.miraiserver.com/NGshoplist.php?id=";
+        //serverurlの末尾にログインしているIDを追加
+        serverurl = [serverurl stringByAppendingString:self.accoutid];
+        NSData *data = [web ServerData:serverurl];
+        NSError *err;
+        NGarray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
+    }
     //緯度に関するパラメータを格納するための変数
     NSString *latstr = [NSString stringWithFormat:@"&lat=%f",startlocation.coordinate.latitude];
     //経度に関するパラメータを格納するための変数
@@ -240,9 +254,16 @@
     //izakayadicのキー「results_available」の値が0でないか
     if (resultcount != 0) {
         NSLog(@"ヒット数:%d",resultcount);
-        //検索結果を何件目から出力するか決める変数
-        int startpage = (arc4random() % resultcount) + 1;
-        NSLog(@"%d件目から検索",startpage);
+        //居酒屋の数を100で割った数を格納
+        int loop = resultcount / 100;
+        //居酒屋の数は100で割り切れないか
+        if (resultcount % 100 != 0) {
+            loop++;
+        }
+        for (int i = 0; i < loop; i++) {
+            //検索結果を何件目から出力するか決める変数
+            int startpage = (100 * i) + 1;
+            NSLog(@"%d件目から検索",startpage);
             //検索結果を何件目から出力するか決めるためのパラメータを格納するための変数
             NSString *startstr = [NSString stringWithFormat:@"&start=%d",startpage];
             //apiurlの末尾にstartstrを追加した文字列の変数
@@ -253,15 +274,22 @@
             NSDictionary *newresdic = [newdic objectForKey:@"results"];
             //newresdicのキー「shop」の値(今回の場合の値は居酒屋の情報を格納されている配列)を格納
             NSArray *shoparray = [newresdic objectForKey:@"shop"];
+            //shoparrayの要素分のループ処理実行(最大100)
             for (int n = 0; n < [shoparray count]; n++) {
-                NSLog(@"追加");
-                //izakayaarrayの末尾にshoparrayのn番目の要素(要素の型はNSDictionary)を格納
-                [izakayaarray addObject:[shoparray objectAtIndex:n]];
+                //shoparrayのn番目の要素(今回はNSDictionary型)を格納
+                NSDictionary *adddic = [shoparray objectAtIndex:n];
+                //追加しようとしている居酒屋のIDがNGの店のIDとかぶっていないか
+                if (![NGarray containsObject:[adddic objectForKey:@"id"]]) {
+                    NSLog(@"追加");
+                    //izakayaarrayの末尾にadddicを格納
+                    [izakayaarray addObject:adddic];
+                }else{
+                    NSLog(@"IDがかぶっている");
+                }
             }
-    }else{
+        }
+        }else{
         NSLog(@"ヒットなし");
-        //GPSを停止
-        [manager stopUpdatingLocation];
     }
 }
 
@@ -398,8 +426,6 @@
 
 //成功画面に移るため野メソッド
 -(void)sucsess{
-    //GPSを止める
-    [manager stopUpdatingLocation];
     //タイマーを止める
     [timer invalidate];
     timer = nil;
@@ -409,6 +435,8 @@
 
 //画面遷移する前に呼ばれるメソッド
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //GPSを止める
+    [manager stopUpdatingLocation];
     //accountidの長さ0であるか
     if ([self.accoutid length] > 0) {
         //セグエの名前がnotfoundsegueであるか
