@@ -68,18 +68,9 @@
                                     <action selector="start:" destination="Rev-6t-aoF" eventType="touchUpInside" id="xpJ-wG-OYZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZP-kn-RaM">
-                                <rect key="frame" x="61" y="495" width="45" height="30"/>
-                                <state key="normal" title="button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="idsegue:" destination="Rev-6t-aoF" eventType="touchUpInside" id="xn1-fs-Sda"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7a-Su-Mnx">
-                                <rect key="frame" x="206" y="495" width="30" height="30"/>
-                                <state key="normal" title="履歴">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7a-Su-Mnx">
+                                <rect key="frame" x="206" y="495" width="70" height="42"/>
+                                <state key="normal" backgroundImage="rireki">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -92,6 +83,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZP-kn-RaM">
+                                <rect key="frame" x="46" y="498" width="68" height="36"/>
+                                <state key="normal" title="button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="idsegue:" destination="Rev-6t-aoF" eventType="touchUpInside" id="xn1-fs-Sda"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -142,9 +142,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D00-eb-3rj">
-                                <rect key="frame" x="95" y="366" width="105" height="30"/>
-                                <state key="normal" title="選択画面に戻る">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D00-eb-3rj">
+                                <rect key="frame" x="113" y="384" width="87" height="59"/>
+                                <state key="normal" backgroundImage="choiceback">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -207,9 +207,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdw-Tq-lnj">
-                                <rect key="frame" x="108" y="506" width="105" height="30"/>
-                                <state key="normal" title="選択画面に戻る">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdw-Tq-lnj">
+                                <rect key="frame" x="157" y="469" width="101" height="54"/>
+                                <state key="normal" backgroundImage="choiceback">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -222,9 +222,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEL-b6-qBp">
-                                <rect key="frame" x="126" y="468" width="60" height="30"/>
-                                <state key="normal" title="新規登録">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEL-b6-qBp">
+                                <rect key="frame" x="47" y="477" width="85" height="37"/>
+                                <state key="normal" backgroundImage="newadd">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -283,27 +283,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAr-HL-jzd">
-                                <rect key="frame" x="132" y="475" width="33" height="30"/>
-                                <state key="normal" title="login">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="login:" destination="yUu-qN-1eP" eventType="touchUpInside" id="rR9-fS-aas"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCn-X5-K0q">
-                                <rect key="frame" x="197" y="475" width="34" height="30"/>
-                                <state key="normal" title="back">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9v-V8-thB">
+                                <rect key="frame" x="30" y="302" width="237" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCn-X5-K0q">
+                                <rect key="frame" x="220" y="475" width="84" height="47"/>
+                                <state key="normal" backgroundImage="choiceback">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="back:" destination="yUu-qN-1eP" eventType="touchUpInside" id="TZh-9b-gfh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Wh-sY-igL">
-                                <rect key="frame" x="37" y="475" width="75" height="30"/>
-                                <state key="normal" title="新規ID取得">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Wh-sY-igL">
+                                <rect key="frame" x="30" y="475" width="78" height="43"/>
+                                <state key="normal" backgroundImage="newid">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -316,12 +313,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9v-V8-thB">
-                                <rect key="frame" x="30" y="302" width="237" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAr-HL-jzd">
+                                <rect key="frame" x="123" y="478" width="75" height="38"/>
+                                <state key="normal" backgroundImage="login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="yUu-qN-1eP" eventType="touchUpInside" id="rR9-fS-aas"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -550,6 +550,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="choiceback" width="94" height="60"/>
         <image name="fukidashi" width="598" height="281"/>
         <image name="haikei" width="272" height="483"/>
         <image name="iriguchi" width="500" height="650"/>
@@ -557,9 +558,13 @@
         <image name="joushibeel3" width="1188" height="1017"/>
         <image name="joushisad" width="708" height="1017"/>
         <image name="joushisample" width="996" height="1077"/>
+        <image name="login" width="83" height="36"/>
         <image name="menyu-q" width="400" height="640"/>
         <image name="mise" width="450" height="800"/>
+        <image name="newadd" width="85" height="37"/>
+        <image name="newid" width="83" height="52"/>
         <image name="nobori" width="614" height="211"/>
+        <image name="rireki" width="84" height="50"/>
         <image name="tuki" width="76" height="85"/>
         <image name="tyuumon" width="200" height="150"/>
     </resources>
@@ -569,6 +574,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Lqa-PJ-dl7"/>
+        <segue reference="8IV-J6-Kmk"/>
     </inferredMetricsTieBreakers>
 </document>

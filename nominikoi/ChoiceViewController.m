@@ -31,14 +31,16 @@
 - (void)viewDidLoad {
     NSLog(@"%@",self.accoutid);
     self.IDlabel.text = @"ID:";
+    [self.logbutton setTitle:@"" forState:UIControlStateNormal];
     //文字列accoutidの長さが0より大きいか
     if ([self.accoutid length] > 0) {
-        //ボタンを文字の名前をlogoutにする
-        [self.logbutton setTitle:@"logout" forState:UIControlStateNormal];
+        //ボタンの画像をログアウト用の画像にする
+        [self.logbutton setBackgroundImage:[UIImage imageNamed:@"logout.png"] forState:UIControlStateNormal];
+        
         self.IDlabel.text = [self.IDlabel.text stringByAppendingString:self.accoutid];
     }else{
-        //そうでない場合はloginにする
-        [self.logbutton setTitle:@"login" forState:UIControlStateNormal];
+        //ボタンの画像をログイン用の画像にする
+        [self.logbutton setBackgroundImage:[UIImage imageNamed:@"login.png"] forState:UIControlStateNormal];
         //IDlabelを非表示
         self.IDlabel.hidden = YES;
     }
@@ -111,12 +113,11 @@
 
 //ログインボタンを押したらよばれるメソッド
 - (IBAction)idsegue:(id)sender {
-    if ([[self.logbutton currentTitle
-         ] isEqualToString:@"logout"]) {
+    if ([self.accoutid length] > 0) {
         //accoutidを空にする
         self.accoutid = nil;
-        //ボタンの名前をloginにする
-        [self.logbutton setTitle:@"login" forState:UIControlStateNormal];
+        //ボタンの画像をログイン用の画像にする
+        [self.logbutton setBackgroundImage:[UIImage imageNamed:@"login.png"] forState:UIControlStateNormal];
         //IDlabelを非表示
         self.IDlabel.hidden = YES;
     }else{
