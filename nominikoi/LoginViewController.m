@@ -16,6 +16,8 @@
 @implementation LoginViewController
 
 - (void)viewDidLoad {
+    //警告用のラベルを非表示
+    self.warning.hidden = YES;
     //テキストフィールドのデリゲートを自分自身に指定
     self.IDtextfield.delegate = self;
     self.Passtextfield.delegate = self;
@@ -29,15 +31,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//画面をタップしたときに呼ばれるメソッド
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    //キーボードを閉じる
     [self.IDtextfield resignFirstResponder];
     [self.Passtextfield resignFirstResponder];
 }
 
+//キーボードのリターンキーを押したときに呼ばれるメソッド
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    //編集しているテキストフィールドがIDを入力するテキストフィールドであるか
     if (textField == self.IDtextfield) {
         [self.IDtextfield resignFirstResponder];
-    } else if (textField == self.Passtextfield){
+    }
+    //編集しているテキストフィールドがパスワードを入力するテキストフィールドであるか
+    else if (textField == self.Passtextfield){
         [self.Passtextfield resignFirstResponder];
     }
     return YES;
@@ -52,18 +61,22 @@
 }
 */
 
+//ログインボタンを押したときに呼ばれるメソッド
 - (IBAction)login:(id)sender {
+    self.warning.hidden = NO;
     //文字を入力されているか
     if (([self.Passtextfield.text length] == 0) || ([self.IDtextfield.text length] == 0)) {
-        self.warning.text = @"文字を入力してください";
+        //警告をだし処理終了
+        self.warning.text = @"テキストフィールドが空欄です";
         return;
     }
     //半角文字で入力されているか
     if (![self.IDtextfield.text canBeConvertedToEncoding:NSASCIIStringEncoding]) {
-        self.warning.text = @"IDの入力欄は半角文字で入力してください";
+        //警告をだし処理終了
+        self.warning.text = @"IDの入力欄は\n半角文字で入力してください";
         return;
     }
-    //ログイン先のURLを設定
+    //ログインプログラムのURLを設定
     NSString *urlstr = @"http://smartshinobu.miraiserver.com/login.php?id=(id)&pass=(pass)";
     //文字列(id)をIDtextfieldに入力された文字列に置換
     urlstr = [urlstr stringByReplacingOccurrencesOfString:@"(id)" withString:self.IDtextfield.text];
@@ -81,9 +94,9 @@
     NSError *err;
     //trimdataをNSDcitionary型の変数に変換
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:trimdata options:NSJSONReadingMutableContainers error:&err];
-    //dicの中身が空っぽか
+    //dicの中身が空っぽか(IDとパスワードがあているかどうか)
     if (dic == nil) {
-        self.warning.text = @"認証失敗";
+        self.warning.text = @"IDかパスワードが\n間違っています";
         return;
     }else{
         [self performSegueWithIdentifier:@"accountsegue" sender:self];

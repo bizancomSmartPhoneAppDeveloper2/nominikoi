@@ -24,7 +24,10 @@
 - (IBAction)idsegue:(id)sender;
 //ログイン関係のボタン
 @property (weak, nonatomic) IBOutlet UIButton *logbutton;
+//履歴ボタンを押したら呼ばれるメソッド
 - (IBAction)history:(id)sender;
+//ログインしているIDを表示するためのラベル
+@property (weak, nonatomic) IBOutlet UILabel *IDlabel;
 
 
 @end

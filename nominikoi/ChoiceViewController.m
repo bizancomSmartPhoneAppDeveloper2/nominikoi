@@ -30,13 +30,17 @@
 
 - (void)viewDidLoad {
     NSLog(@"%@",self.accoutid);
+    self.IDlabel.text = @"ID:";
     //文字列accoutidの長さが0より大きいか
     if ([self.accoutid length] > 0) {
         //ボタンを文字の名前をlogoutにする
         [self.logbutton setTitle:@"logout" forState:UIControlStateNormal];
+        self.IDlabel.text = [self.IDlabel.text stringByAppendingString:self.accoutid];
     }else{
         //そうでない場合はloginにする
         [self.logbutton setTitle:@"login" forState:UIControlStateNormal];
+        //IDlabelを非表示
+        self.IDlabel.hidden = YES;
     }
     //2つのpickerのデリゲートとデータソースを自分自身に設定
     self.timepicker.delegate = self;
@@ -113,6 +117,8 @@
         self.accoutid = nil;
         //ボタンの名前をloginにする
         [self.logbutton setTitle:@"login" forState:UIControlStateNormal];
+        //IDlabelを非表示
+        self.IDlabel.hidden = YES;
     }else{
     //名前がsecondsegueであるセグエを実行
     [self performSegueWithIdentifier:@"loginsegue" sender:self];
