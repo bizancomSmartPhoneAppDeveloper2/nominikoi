@@ -45,6 +45,8 @@
 @implementation MainViewController
 
 - (void)viewDidLoad {
+    //apiurlの初期化
+    apiurl = @"http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=e6cb3dcef9a8c408&format=json&genre=G001&count=100";
     NSLog(@"%@",self.accoutid);
     //距離に関するパラメータを格納するための変数
     NSString* range = @"&range=";
@@ -75,6 +77,59 @@
     }
     //timelabelの初期化
     self.timelabel.text = [NSString stringWithFormat:@"%02d:%02d",minute,seconds];
+    //mapのデリゲートを自分自身に設定
+    self.map.delegate = self;
+    NSArray *moneyarray = [NSArray arrayWithObjects:@"〜2000円",@"2000〜3000円",@"3000〜4000円",@"4000〜5000円",@"制限なし", nil];
+    //secondの初期化
+    seconds = 0;
+    //startの初期化
+    start = YES;
+    //mapを隠す
+    self.map.hidden = YES;
+    //空のリストを生成
+    izakayaarray = [NSMutableArray array];
+    //予算に関するパラメータを格納するための変数
+    NSString *moneyrange = @"&budget=B00";
+    //moneyarrayの要素の数の繰り返し処理を開始
+    for (int i = 0; i < [moneyarray count]; i++) {
+        if ([self.moneystr isEqualToString:[moneyarray objectAtIndex:i]]) {
+            //i=4(moneystrの値が文字列「4000〜5000円」)であるか
+            if (i == 3) {
+                //moneyrangeの値を文字列「&budget=B008」にする
+                moneyrange = [moneyrange stringByAppendingString:[NSString stringWithFormat:@"%d",8]];
+            }
+            //i=5(moneystrの値が文字列「4000〜5000円」)であるか
+            else if(i == 4){
+                //moneyrangeの値をなしにする
+                moneyrange = @"";
+            }
+            //それ以外場合の処理
+            else{
+                //moneyrangeの値を文字列「&budget=B00(i+1)」にする
+                moneyrange = [moneyrange stringByAppendingString:[NSString stringWithFormat:@"%d",(i + 1)]];
+            }
+            //apiurlの末尾にmoneyrangeを追加
+            apiurl = [apiurl stringByAppendingString:moneyrange];
+            //ループを抜け出す
+            break;
+        }
+    }
+    //managerの初期化
+    manager = [[CLLocationManager alloc]init];
+    //managerのデリゲートを自分自身に指定
+    manager.delegate = self;
+    //managerがrequestWhenInUseAuthorizationというメソッドを持っているか
+    if ([manager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        //requestWhenInUseAuthorizationを実行
+        //位置情報の使用をアプリ起動時のみ許可してもらうよう要求
+        [manager requestWhenInUseAuthorization];
+    }
+    //GPSの測位の制度を指定
+    //manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    //GPSの位置情報取得間隔を設定
+    //manager.distanceFilter = 10.0;
+    //GPSを起動
+    [manager startUpdatingLocation];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -339,65 +394,6 @@
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"居酒屋情報" message:info delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     //アラートを表示
     [alert show];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:NO];
-    //mapのデリゲートを自分自身に設定
-    self.map.delegate = self;
-    NSArray *moneyarray = [NSArray arrayWithObjects:@"〜2000円",@"2000〜3000円",@"3000〜4000円",@"4000〜5000円",@"制限なし", nil];
-    //secondの初期化
-    seconds = 0;
-    //apiurlの初期化
-    apiurl = @"http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=e6cb3dcef9a8c408&format=json&genre=G001&count=100";
-    //startの初期化
-    start = YES;
-    //mapを隠す
-    self.map.hidden = YES;
-    //空のリストを生成
-    izakayaarray = [NSMutableArray array];
-    //予算に関するパラメータを格納するための変数
-    NSString *moneyrange = @"&budget=B00";
-    //moneyarrayの要素の数の繰り返し処理を開始
-    for (int i = 0; i < [moneyarray count]; i++) {
-        if ([self.moneystr isEqualToString:[moneyarray objectAtIndex:i]]) {
-            //i=4(moneystrの値が文字列「4000〜5000円」)であるか
-            if (i == 3) {
-                //moneyrangeの値を文字列「&budget=B008」にする
-                moneyrange = [moneyrange stringByAppendingString:[NSString stringWithFormat:@"%d",8]];
-            }
-            //i=5(moneystrの値が文字列「4000〜5000円」)であるか
-            else if(i == 4){
-                //moneyrangeの値をなしにする
-                moneyrange = @"";
-            }
-            //それ以外場合の処理
-            else{
-                //moneyrangeの値を文字列「&budget=B00(i+1)」にする
-                moneyrange = [moneyrange stringByAppendingString:[NSString stringWithFormat:@"%d",(i + 1)]];
-            }
-            //apiurlの末尾にmoneyrangeを追加
-            apiurl = [apiurl stringByAppendingString:moneyrange];
-            //ループを抜け出す
-            break;
-        }
-    }
-    //managerの初期化
-    manager = [[CLLocationManager alloc]init];
-    //managerのデリゲートを自分自身に指定
-    manager.delegate = self;
-    //managerがrequestWhenInUseAuthorizationというメソッドを持っているか
-    if ([manager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        //requestWhenInUseAuthorizationを実行
-        //位置情報の使用をアプリ起動時のみ許可してもらうよう要求
-        [manager requestWhenInUseAuthorization];
-    }
-    //GPSの測位の制度を指定
-    //manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-    //GPSの位置情報取得間隔を設定
-    //manager.distanceFilter = 10.0;
-    //GPSを起動
-    [manager startUpdatingLocation];
 }
 
 //成功画面に移るため野メソッド

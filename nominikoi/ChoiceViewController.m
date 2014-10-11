@@ -11,13 +11,17 @@
 #import "MainViewController.h"
 #import "Webreturn.h"
 
-@interface ChoiceViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UIActionSheetDelegate>{
+@interface ChoiceViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UIActionSheetDelegate,UIAlertViewDelegate>{
     //選択する時間の要素を格納する配列
     NSArray *timearray;
     //選択する予算の要素を格納する配列
     NSArray *moneyarray;
     //行った店の履歴の情報を格納する配列
     NSMutableArray *shoparray;
+    //削除する店を確認するためのアラート
+    UIAlertView *NGAlert;
+    //削除を行う店の情報を格納するための辞書
+    NSDictionary *NGdic;
 }
 
 @end
@@ -157,6 +161,7 @@
             UIActionSheet *as = [[UIActionSheet alloc]init];
             //アクションシートのタイトルを設定
             as.title = @"2度といきたくない店を選択してください";
+            as.delegate = self;
             //shoparrayの要素分、アクションシートのボタンを追加する
             for (int i = 0; i < [shoparray count]; i++) {
                 NSDictionary *shopdic = [shoparray objectAtIndex:i];
@@ -179,4 +184,70 @@
         [alert show];
     }
 }
+
+//アクションシートのボタンを押したときに呼ばれるメソッド
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    //NGdicとNGAlertをいったん値なしにする
+    NGdic = nil;
+    NGAlert = nil;
+    //キャンセルボタンが押されたかどうか
+    if (buttonIndex < [shoparray count]) {
+        //2度といきたくない店の情報を格納
+        NGdic = [shoparray objectAtIndex:buttonIndex];
+        //アラートのメッセージの文字列を格納するための変数
+        NSString *shopname = @"店名:";
+        //shopnameの末尾に2度といきたくない店の名前を追加
+        shopname = [shopname stringByAppendingString:[NGdic objectForKey:@"shopname"]];
+        //NGAlertの値を生成
+        NGAlert = [[UIAlertView alloc]initWithTitle:@"この店に二度と行けないリストに登録しますか" message:shopname delegate:nil cancelButtonTitle:@"キャンセル" otherButtonTitles:@"OK", nil];
+        //NGAlertのデリゲートを自分自身に生成
+        NGAlert.delegate = self;
+        //NGAlertを表示
+        [NGAlert show];
+    }
+}
+
+//アラートのボタンを押したときに呼ばれるメソッド
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    //ボタンを押したアラートがNGAlertであるか
+    if (alertView == NGAlert) {
+        NSLog(@"NGalertのボタンを押した");
+        //キャンセルボタンは0番目、OKボタンは1番目
+        //OKボタンを押されたか
+        if (buttonIndex == 1) {
+            //居酒屋のIDを格納
+            NSString *shopid = [NGdic objectForKey:@"shopid"];
+            //二度と行きたくない店を登録するためプログラムのURLの文字列を格納
+            NSString *NGurl = @"http://smartshinobu.miraiserver.com/NGshopadd.php?id=(id)&shopid=(shopid)";
+            //NGurlの中に文字列(id)をログインしているIDの文字列に変更
+            NGurl = [NGurl stringByReplacingOccurrencesOfString:@"(id)" withString:self.accoutid];
+            //NGurlの中に文字列(shopid)を居酒屋のIDの文字列に変更
+            NGurl = [NGurl stringByReplacingOccurrencesOfString:@"(shopid)" withString:shopid];
+            //Webreturnの変数を生成
+            Webreturn *web = [[Webreturn alloc]init];
+            //サーバーのデータを格納
+            NSData *webdata = [web ServerData:NGurl];
+            //NSErrorの変数を生成
+            NSError *err;
+            //WebdataをもとにJSONオブジェクトを生成
+            NSDictionary *resdic = [NSJSONSerialization JSONObjectWithData:webdata options:NSJSONReadingMutableContainers error:&err];
+            //UIAlertViewの変数宣言
+            UIAlertView *alert;
+            //resdicのキー「result」の値が文字列1であるかどうか
+            //二度行けないリストに登録されたどうか
+            if ([[resdic objectForKey:@"result"] isEqualToString:@"1"]) {
+                //登録したというアラートを生成
+                alert = [[UIAlertView alloc]initWithTitle:@"確認" message:@"選択した店を二度行けないリストに登録しました" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            }else{
+                //登録できなかったというアラートを生成
+                alert = [[UIAlertView alloc]initWithTitle:@"確認" message:@"選択した店を二度行けないリストに登録できませんでした" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            }
+            //アラートを表示
+            [alert show];
+        }
+
+    }
+}
+
+
 @end
