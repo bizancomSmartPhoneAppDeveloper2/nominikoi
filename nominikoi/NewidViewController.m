@@ -83,8 +83,6 @@
         self.warning.text = @"パスワードは\n4文字以上にしてください";
         return;
     }
-    //Webreturnの変数を生成
-    Webreturn *web = [[Webreturn alloc]init];
     //新規登録プログラムのURLを設定
     NSString *serverurl = @"http://smartshinobu.miraiserver.com/IDadd.php?id=(id)&pass=(pass)";
     //文字列(id)をIDtextに入力された文字列に置換
@@ -92,7 +90,7 @@
     //文字列(pass)をPasstextに入力された文字列に置換
     serverurl = [serverurl stringByReplacingOccurrencesOfString:@"(pass)" withString:self.Passtext.text];
     //serverurl先のデータを格納
-    NSData *data = [web ServerData:serverurl];
+    NSData *data = [Webreturn ServerData:serverurl];
     NSError *err;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
     //dicの中身が空でないか

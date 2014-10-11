@@ -43,9 +43,8 @@
         NSString *encodeshop = [self.shopname stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
         //serverurlの中に文字列(shopname)を居酒屋名前の文字列に変更
         serverurl = [serverurl stringByReplacingOccurrencesOfString:@"(shopname)" withString:encodeshop];
-        //Webreturnの変数を生成
-        Webreturn *web = [[Webreturn alloc]init];
-        NSData *data = [web ServerData:serverurl];
+        //サーバーのデーターを格納
+        NSData *data = [Webreturn ServerData:serverurl];
         NSError *err;
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
         NSLog(@"dic = %@",dic);

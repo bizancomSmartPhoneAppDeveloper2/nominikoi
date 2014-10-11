@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "ChoiceViewController.h"
+#import "Webreturn.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 
@@ -82,18 +83,11 @@
     urlstr = [urlstr stringByReplacingOccurrencesOfString:@"(id)" withString:self.IDtextfield.text];
         //文字列(pass)をIDtextfieldに入力された文字列に置換
     urlstr = [urlstr stringByReplacingOccurrencesOfString:@"(pass)" withString:self.Passtextfield.text];
-    //urlstr先のデータを格納
-    NSData *data = [self WebData:urlstr];
-    //データを元に文字列を生成
-    NSString *judgestr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    //余計な文字列を削除
-    judgestr = [judgestr stringByReplacingOccurrencesOfString:@"<!--/* Miraiserver \"NO ADD\" http://www.miraiserver.com */-->" withString:@""];
-    judgestr = [judgestr stringByReplacingOccurrencesOfString:@"<script type=\"text/javascript\" src=\"http://17787372.ranking.fc2.com/analyze.js\" charset=\"utf-8\"></script>" withString:@""];
     //judgestrをNSData型の変数に変換
-    NSData *trimdata = [judgestr dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [Webreturn ServerData:urlstr];
     NSError *err;
-    //trimdataをNSDcitionary型の変数に変換
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:trimdata options:NSJSONReadingMutableContainers error:&err];
+    //dataをNSDcitionary型の変数に変換
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
     //dicの中身が空っぽか(IDとパスワードがあているかどうか)
     if (dic == nil) {
         self.warning.text = @"IDかパスワードが\n間違っています";

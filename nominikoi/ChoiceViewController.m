@@ -150,14 +150,12 @@
     shoparray = [NSMutableArray array];
     //文字列accoutidの長さが0より大きいか(ログイン状態であるか)
     if ([self.accoutid length] > 0) {
-        //Webreturn型の変数を格納
-        Webreturn *web = [[Webreturn alloc]init];
         //履歴のデータをとってくるURLを格納
         NSString *urlstr = @"http://smartshinobu.miraiserver.com/shophistory.php?id=";
         //urlstrの末尾にアカウントIDを追加
         urlstr = [urlstr stringByAppendingString:self.accoutid];
         //urlstr先のデータを格納
-        NSData *data = [web ServerData:urlstr];
+        NSData *data = [Webreturn ServerData:urlstr];
         NSError *err;
         //jsonデータを格納
         shoparray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
@@ -230,10 +228,8 @@
             NGurl = [NGurl stringByReplacingOccurrencesOfString:@"(id)" withString:self.accoutid];
             //NGurlの中に文字列(shopid)を居酒屋のIDの文字列に変更
             NGurl = [NGurl stringByReplacingOccurrencesOfString:@"(shopid)" withString:shopid];
-            //Webreturnの変数を生成
-            Webreturn *web = [[Webreturn alloc]init];
             //サーバーのデータを格納
-            NSData *webdata = [web ServerData:NGurl];
+            NSData *webdata = [Webreturn ServerData:NGurl];
             //NSErrorの変数を生成
             NSError *err;
             //WebdataをもとにJSONオブジェクトを生成

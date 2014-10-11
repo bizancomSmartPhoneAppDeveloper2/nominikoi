@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Webreturn : NSObject
--(NSArray*)JSONArrayData:(NSString*)url;
--(NSData*)webdata:(NSString*)url;
--(NSDictionary*)JSONDictinaryData:(NSString*)url;
--(NSData*)ServerData:(NSString*)url;
++(NSArray*)JSONArrayData:(NSString*)url;
++(NSData*)webdata:(NSString*)url;
++(NSDictionary*)JSONDictinaryData:(NSString*)url;
++(NSData*)ServerData:(NSString*)url;
 @end

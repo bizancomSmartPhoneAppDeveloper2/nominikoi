@@ -12,7 +12,7 @@
 
 
 //JSONのデータをarray型で返すメソッド
--(NSArray*)JSONArrayData:(NSString*)url{
++(NSArray*)JSONArrayData:(NSString*)url{
     //NSErrorの初期化
     NSError *err = nil;
     //requestによって返ってきたデータを生成
@@ -24,7 +24,7 @@
 }
 
 //url先にあるデータを返すメソッド
--(NSData*)webdata:(NSString*)url{
++(NSData*)webdata:(NSString*)url{
     //URLを生成
     NSURL *dataurl = [NSURL URLWithString:url];
     //リクエスト生成
@@ -39,7 +39,7 @@
 }
 
 //JSONのデータをNSDictionary型で返すメソッド
--(NSDictionary*)JSONDictinaryData:(NSString*)url{
++(NSDictionary*)JSONDictinaryData:(NSString*)url{
     //NSErrorの初期化
     NSError *err = nil;
     //requestによって返ってきたデータを生成
@@ -51,7 +51,7 @@
 }
 
 //自分のサーバーのデータを返すメソッド
--(NSData*)ServerData:(NSString*)url{
++(NSData*)ServerData:(NSString*)url{
     NSData *data = [self webdata:url];
     //データを元に文字列を生成
     NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];

@@ -204,36 +204,19 @@
     }
 }
 
-//JSONオブジェクト(NSDictionary)のデータが返ってくるメソッド
--(NSDictionary*)JSONData:(NSString*)url{
-    //URLを生成
-    NSURL *dataurl = [NSURL URLWithString:url];
-    //リクエスト生成
-    NSURLRequest *request = [NSURLRequest requestWithURL:dataurl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-    //レスポンスを生成
-    NSHTTPURLResponse *response;
-    //NSErrorの初期化
-    NSError *err = nil;
-    //requestによって返ってきたデータを生成
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
-    //dataを元にJSONオブジェクトを生成
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
-    //値を返す
-    return dic;
-}
 
 //指定条件にあった居酒屋の情報を取得するためのメソッド
 -(void)setup{
     //文字列accountidの長さが0より大きいか(ログイン状態であるか)
     if ([self.accoutid length] > 0) {
-        //Webreturn型の変数を生成
-        Webreturn *web = [[Webreturn alloc]init];
         //NGの店のIDを取り出す先のURLを格納
         NSString *serverurl = @"http://smartshinobu.miraiserver.com/NGshoplist.php?id=";
         //serverurlの末尾にログインしているIDを追加
         serverurl = [serverurl stringByAppendingString:self.accoutid];
-        NSData *data = [web ServerData:serverurl];
+        //サーバーのデータを生成
+        NSData *data = [Webreturn ServerData:serverurl];
         NSError *err;
+        //NGリストの店のIDが格納されている配列を生成
         NGarray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
     }
     //緯度に関するパラメータを格納するための変数
@@ -246,7 +229,7 @@
     apiurl = [apiurl stringByAppendingString:lngstr];
     NSLog(@"%@",apiurl);
     //apiurlの示すURLのapiから取得したデータを格納
-    NSDictionary *izakayadic = [self JSONData:apiurl];
+    NSDictionary *izakayadic = [Webreturn JSONDictinaryData:apiurl];
     //izakayadicのキー「results」の値(今回の場合の値の型はNSDictionary)を格納
     NSDictionary *resultdic = [izakayadic objectForKey:@"results"];
     //検索結果に該当する数を格納
@@ -269,7 +252,7 @@
             //apiurlの末尾にstartstrを追加した文字列の変数
             NSString *newurl = [apiurl stringByAppendingString:startstr];
             //newurlが示すapiから取得するデータを格納
-            NSDictionary *newdic = [self JSONData:newurl];
+            NSDictionary *newdic = [Webreturn JSONDictinaryData:newurl];
             //newdicのキー「results」の値(今回の場合の値の型はNSDictionary)を格納
             NSDictionary *newresdic = [newdic objectForKey:@"results"];
             //newresdicのキー「shop」の値(今回の場合の値は居酒屋の情報を格納されている配列)を格納
