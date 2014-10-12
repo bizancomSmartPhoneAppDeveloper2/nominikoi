@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     NSLog(@"%@",self.accoutid);
     //履歴をデータベースに保存するphpのURLの文字列を格納
-    serverurl = @"http://smartshinobu.miraiserver.com/shopadd.php?id=(id)&shopid=(shopid)&shopname=(shopname)";
+    serverurl = @"http://smartshinobu.miraiserver.com/nominikoi/shopadd.php?id=(id)&shopid=(shopid)&shopname=(shopname)";
     //最初の吹き出し言葉を設定
     self.fukidashi.text = @"お〜お疲れ\n先に飲んじゃってごめん。";
     //imageviewのアスペクト比を維持

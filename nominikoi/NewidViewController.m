@@ -84,7 +84,7 @@
         return;
     }
     //新規登録プログラムのURLを設定
-    NSString *serverurl = @"http://smartshinobu.miraiserver.com/IDadd.php?id=(id)&pass=(pass)";
+    NSString *serverurl = @"http://smartshinobu.miraiserver.com/nominikoi/IDadd.php?id=(id)&pass=(pass)";
     //文字列(id)をIDtextに入力された文字列に置換
     serverurl = [serverurl stringByReplacingOccurrencesOfString:@"(id)" withString:self.IDtext.text];
     //文字列(pass)をPasstextに入力された文字列に置換

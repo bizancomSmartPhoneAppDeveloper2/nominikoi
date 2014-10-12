@@ -210,7 +210,7 @@
     //文字列accountidの長さが0より大きいか(ログイン状態であるか)
     if ([self.accoutid length] > 0) {
         //NGの店のIDを取り出す先のURLを格納
-        NSString *serverurl = @"http://smartshinobu.miraiserver.com/NGshoplist.php?id=";
+        NSString *serverurl = @"http://smartshinobu.miraiserver.com/nominikoi/NGshoplist.php?id=";
         //serverurlの末尾にログインしているIDを追加
         serverurl = [serverurl stringByAppendingString:self.accoutid];
         //サーバーのデータを生成

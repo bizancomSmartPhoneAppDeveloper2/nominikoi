@@ -78,7 +78,7 @@
         return;
     }
     //ログインプログラムのURLを設定
-    NSString *urlstr = @"http://smartshinobu.miraiserver.com/login.php?id=(id)&pass=(pass)";
+    NSString *urlstr = @"http://smartshinobu.miraiserver.com/nominikoi/login.php?id=(id)&pass=(pass)";
     //文字列(id)をIDtextfieldに入力された文字列に置換
     urlstr = [urlstr stringByReplacingOccurrencesOfString:@"(id)" withString:self.IDtextfield.text];
         //文字列(pass)をIDtextfieldに入力された文字列に置換

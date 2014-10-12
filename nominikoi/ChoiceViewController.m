@@ -151,7 +151,7 @@
     //文字列accoutidの長さが0より大きいか(ログイン状態であるか)
     if ([self.accoutid length] > 0) {
         //履歴のデータをとってくるURLを格納
-        NSString *urlstr = @"http://smartshinobu.miraiserver.com/shophistory.php?id=";
+        NSString *urlstr = @"http://smartshinobu.miraiserver.com/nominikoi/shophistory.php?id=";
         //urlstrの末尾にアカウントIDを追加
         urlstr = [urlstr stringByAppendingString:self.accoutid];
         //urlstr先のデータを格納
@@ -223,7 +223,7 @@
             //居酒屋のIDを格納
             NSString *shopid = [NGdic objectForKey:@"shopid"];
             //二度と行きたくない店を登録するためプログラムのURLの文字列を格納
-            NSString *NGurl = @"http://smartshinobu.miraiserver.com/NGshopadd.php?id=(id)&shopid=(shopid)";
+            NSString *NGurl = @"http://smartshinobu.miraiserver.com/nominikoi/NGshopadd.php?id=(id)&shopid=(shopid)";
             //NGurlの中に文字列(id)をログインしているIDの文字列に変更
             NGurl = [NGurl stringByReplacingOccurrencesOfString:@"(id)" withString:self.accoutid];
             //NGurlの中に文字列(shopid)を居酒屋のIDの文字列に変更
