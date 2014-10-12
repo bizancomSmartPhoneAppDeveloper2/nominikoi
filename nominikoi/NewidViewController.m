@@ -64,6 +64,9 @@
 }
 
 - (IBAction)IDadd:(id)sender {
+    //半角記号を格納している配列
+    NSArray *markarray = [[NSArray alloc]initWithObjects:@"-",@"+",@"^",@"!",@"*",@"[",@"]",@"#",@"\"",
+        @"\'",@"%%",@"=",@"(",@")",@"{",@"}",@"_",@"|",@":",@";",@"<",@">",@"/",@" ",@"`",@",",@".",nil];
     //warningを表示
     self.warning.hidden = NO;
     //文字を入力されているか
@@ -77,6 +80,28 @@
         //警告をだし処理終了
         self.warning.text = @"IDの入力欄は\n半角文字で入力してください";
         return;
+    }
+    
+    //IDの入力欄に半角記号が入力されていないかをチェック
+    for (NSInteger i = 0; i < [self.IDtext.text length]; i++) {
+        //1文字を取り出しチェックする
+        NSString *IDchar = [NSString stringWithFormat:@"%C",[self.IDtext.text characterAtIndex:i]];
+        if ([markarray containsObject:IDchar]) {
+            //半角記号が入力されていた場合は警告をだし処理終了
+            self.warning.text = @"IDの入力欄に\n半角記号を入力しないでください";
+            return;
+        }
+    }
+    
+    //パスワードの入力欄に半角記号が入力されていないかをチェック
+    for (NSInteger n = 0;n < [self.Passtext.text length]; n++) {
+        //1文字を取り出しチェックする
+        NSString *Passchar = [NSString stringWithFormat:@"%C",[self.Passtext.text characterAtIndex:n]];
+        if ([markarray containsObject:Passchar]) {
+            //半角記号が入力されていた場合は警告をだし処理終了
+            self.warning.text = @"パスワードの入力欄に\n半角記号を入力しないでください";
+            return;
+        }
     }
     
     if ([self.Passtext.text length] < 4) {
