@@ -31,6 +31,8 @@
 		878B822719DE42810003D8E1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 878B822519DE42810003D8E1 /* LaunchScreen.xib */; };
 		878B823319DE42810003D8E1 /* nominikoiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 878B823219DE42810003D8E1 /* nominikoiTests.m */; };
 		8799141B19DE70310010F804 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8799141A19DE70310010F804 /* MainViewController.m */; };
+		879C298319EE3DDE00E0779D /* fail.plist in Resources */ = {isa = PBXBuildFile; fileRef = 879C298219EE3DDE00E0779D /* fail.plist */; };
+		879C298519EE414C00E0779D /* sucsess.plist in Resources */ = {isa = PBXBuildFile; fileRef = 879C298419EE414C00E0779D /* sucsess.plist */; };
 		879C70B119E4F48100FE7A41 /* FailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879C70B019E4F48100FE7A41 /* FailViewController.m */; };
 		879C70B419E5060600FE7A41 /* SucsessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879C70B319E5060600FE7A41 /* SucsessViewController.m */; };
 /* End PBXBuildFile section */
@@ -84,6 +86,8 @@
 		878B823219DE42810003D8E1 /* nominikoiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nominikoiTests.m; sourceTree = "<group>"; };
 		8799141919DE70310010F804 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		8799141A19DE70310010F804 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		879C298219EE3DDE00E0779D /* fail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fail.plist; sourceTree = "<group>"; };
+		879C298419EE414C00E0779D /* sucsess.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sucsess.plist; sourceTree = "<group>"; };
 		879C70AF19E4F48100FE7A41 /* FailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailViewController.h; sourceTree = "<group>"; };
 		879C70B019E4F48100FE7A41 /* FailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailViewController.m; sourceTree = "<group>"; };
 		879C70B219E5060600FE7A41 /* SucsessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SucsessViewController.h; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 		878B821619DE42810003D8E1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				879C298419EE414C00E0779D /* sucsess.plist */,
+				879C298219EE3DDE00E0779D /* fail.plist */,
 				877C007219E609FA00EB7336 /* bad.mp3 */,
 				877C007319E609FA00EB7336 /* glass.mp3 */,
 				877C007419E609FA00EB7336 /* kanpai.mp3 */,
@@ -281,7 +287,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				879C298319EE3DDE00E0779D /* fail.plist in Resources */,
 				877C007619E609FA00EB7336 /* bad.mp3 in Resources */,
+				879C298519EE414C00E0779D /* sucsess.plist in Resources */,
 				878B822219DE42810003D8E1 /* Main.storyboard in Resources */,
 				877C007819E609FA00EB7336 /* kanpai.mp3 in Resources */,
 				878B822719DE42810003D8E1 /* LaunchScreen.xib in Resources */,

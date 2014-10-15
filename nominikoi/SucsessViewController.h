@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *fukidashi;
 //キャラクターの画像を表示するためのimageview
 @property (weak, nonatomic) IBOutlet UIImageView *imageview;
+//音源用のプロパティ
 @property (retain,nonatomic) AVAudioPlayer *voice;
 @property (retain,nonatomic) AVAudioPlayer *sound;
 //アカウントのIDを格納するための変数

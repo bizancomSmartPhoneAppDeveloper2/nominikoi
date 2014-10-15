@@ -81,8 +81,11 @@
 
 //吹き出しの言葉を変えるメソッド(2回目)
 -(void)secondselifu{
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *path = [bundle pathForResource:@"fail" ofType:@"plist"];
     //処分用の言葉を格納するための配列
-    NSArray *array = [NSArray arrayWithObjects:@"明日からしばらく\nサービス残業だ!!!",@"今月からしばらく\n給料10%カットだ!!!", @"今年の\n有給休暇なしだ!!!",@"今年のボーナス\nなしだ!!!", @"明日からしばらく\n休日出勤だ!!!",@"今のプロジェクトから\nお前をはずす!!!",@"明日からしばらく\n出勤停止だ",@"今のお前の職位から\n降格だ",nil];
+    NSArray *array = [NSArray arrayWithContentsOfFile:path];
+    //NSArray *array = [NSArray arrayWithObjects:@"明日からしばらく\nサービス残業だ!!!",@"今月からしばらく\n給料10%カットだ!!!", @"今年の\n有給休暇なしだ!!!",@"今年のボーナス\nなしだ!!!", @"明日からしばらく\n休日出勤だ!!!",@"今のプロジェクトから\nお前をはずす!!!",@"明日からしばらく\n出勤停止だ",@"今のお前の職位から\n降格だ",@"明日から早期出勤だ!!!",nil];
     //arrayの中からランダムに選ばれた言葉を表示
     self.fukidashi.text = [array objectAtIndex:arc4random()%[array count]];
     //3秒後にメソッドbackを実行

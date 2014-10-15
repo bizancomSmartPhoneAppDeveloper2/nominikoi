@@ -71,12 +71,6 @@
         self.warning.text = @"テキストフィールドが空欄です";
         return;
     }
-    //半角文字で入力されているか
-    if (![self.IDtextfield.text canBeConvertedToEncoding:NSASCIIStringEncoding]) {
-        //警告をだし処理終了
-        self.warning.text = @"IDの入力欄は\n半角文字で入力してください";
-        return;
-    }
     //ログインプログラムのURLを設定
     NSString *urlstr = @"http://smartshinobu.miraiserver.com/nominikoi/login.php?id=(id)&pass=(pass)";
     //文字列(id)をIDtextfieldに入力された文字列に置換
@@ -93,6 +87,7 @@
         self.warning.text = @"IDかパスワードが\n間違っています";
         return;
     }else{
+        //ログイン用のセグエを実行
         [self performSegueWithIdentifier:@"accountsegue" sender:self];
     }
 }

@@ -70,8 +70,10 @@
 
 //2回目の吹き出しの言葉を変えるメソッド
 -(void)secondfukidashi{
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *path = [bundle pathForResource:@"sucsess" ofType:@"plist"];
     //良い言葉を格納するための配列
-    NSArray *array = [NSArray arrayWithObjects:@"外社から帰社した上司には\n「お疲れ様です」と言うんだぞ",@"名刺を受け取るとき、\n「ちょうだいいたします」\nと言うんだぞ", @"電話の呼び出し音がなったら\n3回以内に出るんだぞ",@"出産祝いは、\n出産の知らせを聞いてから\n贈れよ",@"手紙の宛先が会社のときは、\n様じゃなく御中を使えよ",@"握り寿司を食べるときは、\n箸でなくても手でも\n食べていいんだよ",@"中華料理店にある\nターンテーブルは、\n基本的に右に回すんだぞ",nil];
+    NSArray *array = [NSArray arrayWithContentsOfFile:path];
     //arrayの中からランダムに選ばれた言葉を表示
     self.fukidashi.text = [array objectAtIndex:arc4random()%[array count]];
     //3秒後にメソッドkanpaibeforeを実行

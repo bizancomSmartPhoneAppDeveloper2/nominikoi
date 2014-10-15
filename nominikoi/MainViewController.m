@@ -131,9 +131,9 @@
     //manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     //GPSの位置情報取得間隔を設定
     //manager.distanceFilter = 10.0;
+    [super viewDidLoad];
     //GPSを起動
     [manager startUpdatingLocation];
-    [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 

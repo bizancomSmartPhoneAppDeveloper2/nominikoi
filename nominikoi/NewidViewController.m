@@ -66,7 +66,7 @@
 - (IBAction)IDadd:(id)sender {
     //半角記号を格納している配列
     NSArray *markarray = [[NSArray alloc]initWithObjects:@"-",@"+",@"^",@"!",@"*",@"[",@"]",@"#",@"\"",
-        @"'",@"%%",@"=",@"(",@")",@"{",@"}",@"_",@"|",@":",@";",@"<",@">",@"/",@" ",@"`",@",",@".",@"@",@"$",@"~",@"¥",nil];
+        @"'",@"%%",@"=",@"(",@")",@"{",@"}",@"_",@"|",@":",@";",@"<",@">",@"/",@" ",@"`",@",",@".",@"@",@"$",@"~",@"¥",@"?",nil];
     //warningを表示
     self.warning.hidden = NO;
     //文字を入力されているか
@@ -78,7 +78,7 @@
     //半角文字で入力されているか
     if (![self.IDtext.text canBeConvertedToEncoding:NSASCIIStringEncoding]) {
         //警告をだし処理終了
-        self.warning.text = @"IDの入力欄は\n半角文字で入力してください";
+        self.warning.text = @"IDの入力欄は\n半角英数文字で入力してください";
         return;
     }
     
@@ -104,8 +104,15 @@
         }
     }
     
-    if ([self.Passtext.text length] < 4) {
-        self.warning.text = @"パスワードは\n4文字以上にしてください";
+    //IDの文字数をチェック(6文字未満、12文字より大きいか)
+    if (([self.IDtext.text length] < 6) || ([self.IDtext.text length] > 12)) {
+        self.warning.text = @"IDは\n6文字以上12文字以下にしてください";
+        return;
+    }
+    
+    //パスワードの文字数をチェック(4文字未満、10文字より大きいか)
+    if (([self.Passtext.text length] < 4) || ([self.Passtext.text length] > 10)) {
+        self.warning.text = @"パスワードは\n4文字以上10文字以下にしてください";
         return;
     }
     //新規登録プログラムのURLを設定
