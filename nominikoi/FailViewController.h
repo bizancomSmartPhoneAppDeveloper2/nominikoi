@@ -11,7 +11,5 @@
 @interface FailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *fukidashi;
 @property (weak, nonatomic) IBOutlet UIView *backview;
-//アカウントのIDを格納するための変数
-@property (nonatomic) NSString* accoutid;
 
 @end

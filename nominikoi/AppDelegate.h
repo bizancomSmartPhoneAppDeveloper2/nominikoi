@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>{
+    NSString *accoutid;
+}
 
 @property (strong, nonatomic) UIWindow *window;
-
+//アカウントのIDを保存するための変数
+@property (nonatomic,readwrite) NSString *accoutid;
 
 @end
 

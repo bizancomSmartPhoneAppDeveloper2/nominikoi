@@ -14,6 +14,7 @@
 #import "FailViewController.h"
 #import "SucsessViewController.h"
 #import "Webreturn.h"
+#import "AppDelegate.h"
 
 
 @interface MainViewController ()<CLLocationManagerDelegate,MKMapViewDelegate>{
@@ -41,6 +42,7 @@
     NSString *shopname;
     //NGの店のIDを格納するための配列
     NSArray *NGarray;
+    AppDelegate *delegate;
 }
 
 @end
@@ -48,9 +50,10 @@
 @implementation MainViewController
 
 - (void)viewDidLoad {
+    delegate = [[UIApplication sharedApplication]delegate];
     //apiurlの初期化
     apiurl = @"http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=e6cb3dcef9a8c408&format=json&genre=G001&count=100";
-    NSLog(@"%@",self.accoutid);
+    NSLog(@"%@",delegate.accoutid);
     //距離に関するパラメータを格納するための変数
     NSString* range = @"&range=";
     //shoplabelの初期化
@@ -208,11 +211,11 @@
 //指定条件にあった居酒屋の情報を取得するためのメソッド
 -(void)setup{
     //文字列accountidの長さが0より大きいか(ログイン状態であるか)
-    if ([self.accoutid length] > 0) {
+    if ([delegate.accoutid length] > 0) {
         //NGの店のIDを取り出す先のURLを格納
         NSString *serverurl = @"http://smartshinobu.miraiserver.com/nominikoi/NGshoplist.php?id=";
         //serverurlの末尾にログインしているIDを追加
-        serverurl = [serverurl stringByAppendingString:self.accoutid];
+        serverurl = [serverurl stringByAppendingString:delegate.accoutid];
         //サーバーのデータを生成
         NSData *data = [Webreturn ServerData:serverurl];
         NSError *err;
@@ -323,6 +326,8 @@
     [self.map addAnnotation:izakayaano];
     //ラベルfukidashiに表示する文字列を変更
     self.fukidashi.text = @"ここで待ってるからな";
+    minute = 0;
+    seconds = 15;
     //1秒ごとにメソッドcountdownを実行
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countdown) userInfo:nil repeats:YES];
     
@@ -421,20 +426,10 @@
     //GPSを止める
     [manager stopUpdatingLocation];
     //accountidの長さ0であるか
-    if ([self.accoutid length] > 0) {
-        //セグエの名前がnotfoundsegueであるか
-        if ([[segue identifier] isEqualToString:@"notfoundsegue"]) {
-            //検索失敗画面先にidを継承
-            NotfoundViewController *nvc = segue.destinationViewController;
-            nvc.accoutid = self.accoutid;
-        }else if([[segue identifier] isEqualToString:@"failsegue"]){
-            //失敗画面先にidを継承
-            FailViewController *fvc = segue.destinationViewController;
-            fvc.accoutid = self.accoutid;
-        }else if([[segue identifier] isEqualToString:@"sucsesssegue"]){
-            //成功画面先にidを継承
+    if ([delegate.accoutid length] > 0) {
+        //セグエの名前がsucsesssegueであるか
+        if([[segue identifier] isEqualToString:@"sucsesssegue"]){
             SucsessViewController *svc = segue.destinationViewController;
-            svc.accoutid = self.accoutid;
             //居酒屋のidと名前を成功画面のクラスのプロパティに格納
             svc.shopid = shopid;
             svc.shopname = shopname;

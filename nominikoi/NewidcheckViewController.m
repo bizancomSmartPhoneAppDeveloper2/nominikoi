@@ -8,6 +8,7 @@
 
 #import "NewidcheckViewController.h"
 #import "ChoiceViewController.h"
+#import "AppDelegate.h"
 
 @interface NewidcheckViewController ()
 
@@ -16,7 +17,9 @@
 @implementation NewidcheckViewController
 
 - (void)viewDidLoad {
-    self.IDlabel.text = self.accoutid;
+    AppDelegate *delegate = [[UIApplication sharedApplication]delegate];
+    //新規登録したID名をラベルで表示
+    self.IDlabel.text = delegate.accoutid;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -36,16 +39,10 @@
 }
 */
 
-//選択画面に戻る
+//選択画面に戻るボタンを押したらメソッド
 - (IBAction)choiceback:(id)sender {
+    //Newidbacksegueという名前のセグエを実行
     [self performSegueWithIdentifier:@"Newidbacksegue" sender:self];
 }
 
-//画面遷移が行われる前に呼ばれるメソッド
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    ChoiceViewController *cvc = segue.destinationViewController;
-    //cvcのaccountidに自分のaccountidを格納
-    //これでログイン状態維持
-    cvc.accoutid = self.accoutid;
-}
 @end

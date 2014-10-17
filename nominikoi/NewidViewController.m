@@ -9,6 +9,7 @@
 #import "NewidViewController.h"
 #import "Webreturn.h"
 #import "NewidcheckViewController.h"
+#import "AppDelegate.h"
 
 @interface NewidViewController ()<UITextFieldDelegate>
 
@@ -150,9 +151,10 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     //セグエの名前がIDaddsegueであるか
     if ([[segue identifier] isEqualToString:@"IDaddsegue"]) {
-        NewidcheckViewController *nic = segue.destinationViewController;
-        //cvcのaccountidにID入力用のテキストフィールドに入力した文字列を格納
-        nic.accoutid = self.IDtext.text;
+        AppDelegate* delegate = [[UIApplication sharedApplication]delegate];
+        //appdelegateのインスタンスのプロパティaccountidにIDテキストフィールドの入力したものを格納
+        //これでログイン状態を維持
+        delegate.accoutid = self.IDtext.text;
     }
 }
 @end

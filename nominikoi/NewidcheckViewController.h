@@ -13,6 +13,4 @@
 - (IBAction)choiceback:(id)sender;
 //新規取得したIDを表示するためのラベル
 @property (weak, nonatomic) IBOutlet UILabel *IDlabel;
-//アカウントのIDを格納するための変数
-@property (nonatomic) NSString* accoutid;
 @end

@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "ChoiceViewController.h"
 #import "Webreturn.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 
@@ -117,8 +118,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     //セグエの名前がsecondsegueであるか
     if ([[segue identifier] isEqualToString:@"accountsegue"]) {
-        ChoiceViewController *cvc = segue.destinationViewController;
-        cvc.accoutid = self.IDtextfield.text;
+        AppDelegate* delegate = [[UIApplication sharedApplication]delegate];
+        delegate.accoutid = self.IDtextfield.text;
     }
 }
 

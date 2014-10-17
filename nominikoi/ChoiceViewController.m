@@ -10,6 +10,7 @@
 #import "ChoiceViewController.h"
 #import "MainViewController.h"
 #import "Webreturn.h"
+#import "AppDelegate.h"
 
 @interface ChoiceViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UIActionSheetDelegate,UIAlertViewDelegate>{
     //選択する時間の要素を格納する配列
@@ -22,6 +23,7 @@
     UIAlertView *NGAlert;
     //削除を行う店の情報を格納するための辞書
     NSDictionary *NGdic;
+    AppDelegate *delegate;
 }
 
 @end
@@ -29,15 +31,18 @@
 @implementation ChoiceViewController
 
 - (void)viewDidLoad {
+    delegate = [[UIApplication sharedApplication]delegate];
+    NSLog(@"%@",delegate.accoutid);
     NSLog(@"%@",self.accoutid);
     self.IDlabel.text = @"ID:";
     [self.logbutton setTitle:@"" forState:UIControlStateNormal];
-    //文字列accoutidの長さが0より大きいか
-    if ([self.accoutid length] > 0) {
+    //appdelegateのインスタンスのプロパティaccountidの文字列の長さが0より大きいか
+    //ログイン状態を維持しているか
+    if ([delegate.accoutid length] > 0) {
         //ボタンの画像をログアウト用の画像にする
         [self.logbutton setBackgroundImage:[UIImage imageNamed:@"logout.png"] forState:UIControlStateNormal];
-        
-        self.IDlabel.text = [self.IDlabel.text stringByAppendingString:self.accoutid];
+        //ログインしているIDを表示
+        self.IDlabel.text = [self.IDlabel.text stringByAppendingString:delegate.accoutid];
     }else{
         //ボタンの画像をログイン用の画像にする
         [self.logbutton setBackgroundImage:[UIImage imageNamed:@"login.png"] forState:UIControlStateNormal];
@@ -114,9 +119,10 @@
 
 //ログインボタンを押したらよばれるメソッド
 - (IBAction)idsegue:(id)sender {
-    if ([self.accoutid length] > 0) {
-        //accoutidを空にする
-        self.accoutid = nil;
+    //appdelegateのインスタンスのプロパティaccountidの文字列の長さが0より大きいか
+    //ログイン状態を維持しているか
+    if ([delegate.accoutid length] > 0) {
+        delegate.accoutid = nil;
         //ボタンの画像をログイン用の画像にする
         [self.logbutton setBackgroundImage:[UIImage imageNamed:@"login.png"] forState:UIControlStateNormal];
         //IDlabelを非表示
@@ -138,23 +144,19 @@
         maincon.timestr = [timearray objectAtIndex:[self.timepicker selectedRowInComponent:0]];
         //mapcon.moneyにmoneypickerで選んだ要素を格納
         maincon.moneystr = [moneyarray objectAtIndex:[self.moneypicker selectedRowInComponent:0]];
-        //文字列accouidの長さが0より大きいか
-        if ([self.accoutid length] > 0) {
-            //次の画面もログイン状態を維持
-            maincon.accoutid = self.accoutid;
-        }
     }
 }
 
 //履歴ボタンを押したら呼ばれるメソッド
 - (IBAction)history:(id)sender {
     shoparray = [NSMutableArray array];
-    //文字列accoutidの長さが0より大きいか(ログイン状態であるか)
-    if ([self.accoutid length] > 0) {
+    //appdelegateのインスタンスのプロパティaccountidの文字列の長さが0より大きいか
+    //ログイン状態を維持しているか
+    if ([delegate.accoutid length] > 0) {
         //履歴のデータをとってくるURLを格納
         NSString *urlstr = @"http://smartshinobu.miraiserver.com/nominikoi/shophistory.php?id=";
         //urlstrの末尾にアカウントIDを追加
-        urlstr = [urlstr stringByAppendingString:self.accoutid];
+        urlstr = [urlstr stringByAppendingString:delegate.accoutid];
         //urlstr先のデータを格納
         NSData *data = [Webreturn ServerData:urlstr];
         NSError *err;
@@ -226,7 +228,7 @@
             //二度と行きたくない店を登録するためプログラムのURLの文字列を格納
             NSString *NGurl = @"http://smartshinobu.miraiserver.com/nominikoi/NGshopadd.php?id=(id)&shopid=(shopid)";
             //NGurlの中に文字列(id)をログインしているIDの文字列に変更
-            NGurl = [NGurl stringByReplacingOccurrencesOfString:@"(id)" withString:self.accoutid];
+            NGurl = [NGurl stringByReplacingOccurrencesOfString:@"(id)" withString:delegate.accoutid];
             //NGurlの中に文字列(shopid)を居酒屋のIDの文字列に変更
             NGurl = [NGurl stringByReplacingOccurrencesOfString:@"(shopid)" withString:shopid];
             //サーバーのデータを格納
@@ -252,6 +254,5 @@
 
     }
 }
-
 
 @end

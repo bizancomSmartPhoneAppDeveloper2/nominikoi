@@ -29,7 +29,5 @@
 @property (weak, nonatomic) IBOutlet UIView *backview;
 //吹き出しに言葉を表示するためのラベル
 @property (weak, nonatomic) IBOutlet UILabel *fukidashi;
-//アカウントのIDを格納するための変数
-@property (nonatomic) NSString* accoutid;
 
 @end

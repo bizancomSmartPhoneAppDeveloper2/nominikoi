@@ -9,6 +9,7 @@
 #import "SucsessViewController.h"
 #import "ChoiceViewController.h"
 #import "Webreturn.h"
+#import "AppDelegate.h"
 
 
 
@@ -23,27 +24,29 @@
 @implementation SucsessViewController
 
 - (void)viewDidLoad {
-    NSLog(@"%@",self.accoutid);
+    AppDelegate* delegate = [[UIApplication sharedApplication]delegate];
+    NSLog(@"%@",delegate.accoutid);
     //履歴をデータベースに保存するphpのURLの文字列を格納
     serverurl = @"http://smartshinobu.miraiserver.com/nominikoi/shopadd.php?id=(id)&shopid=(shopid)&shopname=(shopname)";
     //最初の吹き出し言葉を設定
     self.fukidashi.text = @"お〜お疲れ\n先に飲んじゃってごめん。";
     //imageviewのアスペクト比を維持
     self.imageview.contentMode = UIViewContentModeScaleAspectFit;
-    //文字列accoutidの長さが0より大きいか(ログイン状態を維持しているか)
-    if ([self.accoutid length] > 0) {
-        NSLog(@"%@",self.accoutid);
+    //appdelegateのインスタンスのプロパティaccountidの文字列の長さが0より大きいか
+    //ログイン状態を維持しているか
+    if ([delegate.accoutid length] > 0) {
+        NSLog(@"%@",delegate.accoutid);
         NSLog(@"%@",self.shopid);
         NSLog(@"%@",self.shopname);
         //serverurlの中に文字列(id)をログインしているIDの文字列に変更
-        serverurl = [serverurl stringByReplacingOccurrencesOfString:@"(id)" withString:self.accoutid];
+        serverurl = [serverurl stringByReplacingOccurrencesOfString:@"(id)" withString:delegate.accoutid];
         //serverurlの中に文字列(id)を居酒屋IDの文字列に変更
         serverurl = [serverurl stringByReplacingOccurrencesOfString:@"(shopid)" withString:self.shopid];
         //日本語の部分をエンコード
         NSString *encodeshop = [self.shopname stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
         //serverurlの中に文字列(shopname)を居酒屋名前の文字列に変更
         serverurl = [serverurl stringByReplacingOccurrencesOfString:@"(shopname)" withString:encodeshop];
-        //サーバーのデーターを格納
+        //サーバーのデータを格納
         NSData *data = [Webreturn ServerData:serverurl];
         NSError *err;
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
@@ -152,14 +155,4 @@
 }
 */
 
-//画面遷移する前に呼ばれるメソッド
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    //accountidの長さ0であるか
-    if ([self.accoutid length] > 0) {
-        ChoiceViewController *cvc = segue.destinationViewController;
-        //cvcのaccoutidに自分のaccoutidを格納
-        //これでログイン状態を維持
-        cvc.accoutid = self.accoutid;
-    }
-}
 @end

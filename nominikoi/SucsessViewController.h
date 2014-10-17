@@ -18,8 +18,6 @@
 //音源用のプロパティ
 @property (retain,nonatomic) AVAudioPlayer *voice;
 @property (retain,nonatomic) AVAudioPlayer *sound;
-//アカウントのIDを格納するための変数
-@property (nonatomic) NSString* accoutid;
 //居酒屋のIDを格納するための変数
 @property (nonatomic) NSString* shopid;
 //居酒屋の名前を格納するための変数
